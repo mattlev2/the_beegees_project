@@ -1,4 +1,4 @@
-totiusque vitae rationem. ad caelestis ordinis exempla
+totiusque vitae rationem. <call>alpha</call>ad caelestis ordinis exempla
 formares. Haecine praemia referimus tibi
 obsequentes; Atqui tu hanc sententiam Pla
 tonis ore sanxisti beatas fore res publicas.
