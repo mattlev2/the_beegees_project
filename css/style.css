@@ -35,6 +35,7 @@ span.popup1{
 
 span.popup2{
     position: absolute;
+    display:inline;
     bottom:40pt;
     right:20pt;
     visibility: hidden;
