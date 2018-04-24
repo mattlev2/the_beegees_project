@@ -1,0 +1,37 @@
+<fulfillmentToken fulfillmentType="loan" auth="user" xmlns="http://ns.adobe.com/adept">
+  <distributor>urn:uuid:9cb786e8-586a-4950-8901-fff8d2ee6025</distributor>
+  <operatorURL>http://acs.ebookcentral.proquest.com/fulfillment</operatorURL>
+  <transaction>919575_89372962</transaction>
+  <expiration>2018-05-08T06:15:04-07:00</expiration>
+  <resourceItemInfo>
+    <resource>urn:uuid:00000000-0000-0000-0000-000000919575</resource>
+    <resourceItem>0</resourceItem>
+    <metadata>
+      <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">A Companion to Boethius in the Middle Ages</dc:title>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Kaylor, Noel Harold, Jr.; Phillips, Philip Edward; </dc:creator>
+      <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">BRILL</dc:publisher>
+      <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">919575</dc:identifier>
+      <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/pdf</dc:format>
+    </metadata>
+    <licenseToken>
+      <resource>urn:uuid:00000000-0000-0000-0000-000000919575</resource>
+      <permissions>
+        <display>
+          <duration>1209599</duration>
+        </display>
+        <excerpt>
+          <duration>1209599</duration>
+          <count initial="137" max="137" incrementInterval="8829"/>
+        </excerpt>
+        <print>
+          <duration>1209599</duration>
+          <count initial="274" max="274" incrementInterval="4414"/>
+        </print>
+        <play>
+          <duration>1209599</duration>
+        </play>
+      </permissions>
+    </licenseToken>
+  </resourceItemInfo>
+  <hmac>cxcH3iZ0EydigB3DU/ldp+EZXn8=</hmac>
+</fulfillmentToken>
