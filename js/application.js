@@ -2,6 +2,12 @@ $(document).ready(function(){
   /* initialise handlebarsjs templates
   these reference the ids of <script> tags in the HTML file
    */
+   $('.popover-dismiss').popover({
+  trigger: 'focus'
+});
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});
   var templates = {
     note : Handlebars.compile(document.getElementById("template-note").innerHTML),
     // [...]
