@@ -1,15 +1,33 @@
 <!DOCTYPE HTML>
 <html class="no-js" lang="en-GB">
   <head>
+    <title>DEMM Hack Prototype</title>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>DEMM Hack Prototype</title>
     <meta name="description" content="This is a prototype digital manuscript edition made during the DEMM Hack week at Cambridge University Library.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
+    <div><h3>Search tool</h3>
+      <form
+        method="POST"
+        action="search_results.xq">
+        <input
+          type="text"
+          name="searchphrase"
+          size="40"/>
+        <fieldset class="f2">
+          <div class="box" name="form"><input type="checkbox" name="select_type_of_text1" id="option1" value="1">Search in the main text</div>
+          <div class="box" name="form"><input type="checkbox" name="select_type_of_text2" id="option2" value="2">Search in the marginalia</div>
+          <div class="box" name="form"><input type="checkbox" name="select_type_of_text3" id="option3" value="3">Search in the interlinear glosses</div>
+        </fieldset>
+        <input
+          type="submit"
+          value="Let's do this!"/>
+      </form>
+    </div>
     <div class="container-fluid" id="site-wrapper">
       <div class="row py-5">
         <div class="col-1 col-5 mx-auto">

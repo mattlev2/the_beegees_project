@@ -21,7 +21,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
     <body>
         <h1>{$page-title}</h1>
         <p>Searched string: "{$searchphrase}"</p>
-        {
+        { (:Show the string in context if asked and if found in the main text:)
             (if ($select_type_of_text = contains("1"))
             then
                 (let $extrait := doc("transcription.xml")/text/text()[contains(., concat(" ", $searchphrase, " "))]
@@ -41,17 +41,17 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                             }
                         </ul>)
                     else
-                        ('The main text does not contains the string you are looking for. Bad luck !')
+                        ('The main text does not contains the string you are looking for. You should try again later!')
                     )
                 )
             else
                 ()
             )
         }
-        {
+        { (:Show the string in context if asked and if found in the marginalia:)
             (if ($select_type_of_text = contains("2"))
             then
-                (let $extrait2 := doc("transcription.xml")/text/glossed[@where = "margin"][@content[contains(., concat(" ", $searchphrase, " "))]]
+                (let $extrait2 := doc("transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
                 return
                     (if (exists($extrait2))
                     then
@@ -76,7 +76,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                 ()
             )
         }
-        {
+        { (:Show the string in context if asked and if found in the interlinear glosses:)
             (if ($select_type_of_text = contains("3"))
             then
                 (let $extrait3 := doc("transcription.xml")/text/text()[contains(., concat(" ", $searchphrase, " "))]
