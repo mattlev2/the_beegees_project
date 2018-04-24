@@ -23,22 +23,21 @@ span.popup1{
     position: absolute;
     width: 200px;
     visibility: hidden;
-    background: #F2EFEF;
     padding: 0em 1em 0em 1em;
-    border: solid 1px;
     font-size: 90%;
     font-family: Helvetica, Sans-serif;
     line-height: 1.4;
     -moz-border-radius: .5em;
     -webkit-border-radius: .5em;
     border-radius: .5em;
-    box-shadow: 10px 10px 5px #888888;
     z-index: 250;
 }
 
 span.popup2{
     position: absolute;
-    width: 200px;
+    display:inline;
+    bottom:40pt;
+    right:20pt;
     visibility: hidden;
     background: #F2EFEF;
     padding: 0em 1em 0em 1em;
