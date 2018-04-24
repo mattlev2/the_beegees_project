@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+.smaller {
+    font-size: 10pt;
+}
+
 p {
     margin-top: 20pt;
 }
@@ -19,7 +23,7 @@ p {
 
 /*displays of the popup*/
 
-span.popup1{
+span.popup1 {
     position: absolute;
     width: 200px;
     visibility: hidden;
@@ -33,10 +37,10 @@ span.popup1{
     z-index: 250;
 }
 
-span.popup2{
+span.popup2 {
     position: absolute;
-    bottom:40px;
-    margin-left:-10px;
+    bottom: 40px;
+    margin-left: -10px;
     visibility: visible;
     padding: 0em 1em 0em 1em;
     font-size: 90%;
