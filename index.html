@@ -1,4 +1,4 @@
-<?Doctype html?>
+<!DOCTYPE HTML>
 <html class="no-js" lang="en-GB">
   <head>
     <meta charset="utf-8" />
@@ -12,43 +12,47 @@
   <body>
     <div class="container-fluid" id="site-wrapper">
       <div class="row py-5">
-        <div class="col col-7 mx-auto">
+        <div class="col-1 col-5 mx-auto">
           <h1>Transcription</h1>
-          <!--<p>THis is an example <a tabindex="0" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a></p>-->
+          <fieldset class="f2"> <!--To be continued, and the .js file too-->
+            <legend>
+              <h3>Options</h3>
+            </legend>
+            <div class="box" name="form"><input type="checkbox" name="fieldset2-1" id="options1" class="mycheck-option" unchecked="unchecked"> Highlight the glossed part of the text</div>
+          </fieldset>
+          <!--THis is an example <a tabindex="0" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a><br/>-->
           
-          <p> totiusque vitae rationem. <a id="call_4" class="apparat"
-            onmouseover="document.getElementById('popup1_4').style.visibility='visible';"
-            onmouseout="document.getElementById('popup1_4').style.visibility='hidden';"><span
-              id="link1">A</span></a>ad caelestis ordinis exempla</p>
-          <p> formares. Haecine praemia referimus tibi</p>
-          <p> obsequentes; Atqui tu hanc sententiam Pla </p>
-          <p>tonis ore sanxisti beatas fore res publicas.</p>
-          <p>si eas vel studiosi sapientiae regerent. vel</p>
-          <p>earum rectores studere sapientiae contigisset.</p>
-          <p>Tu eiusdem viri ore hanc sapientibus capessendae</p>
-          <p>rei .p(ublicae). necessariam causam esse monuisti;</p>
-          <p>ne improbis flagitiosisque civibus urbium relicta</p>
-          <p>gubernacula. pestem bonis ac perniciem</p>
-          <p>ferrent. Hanc igitur auctoritatem secutus.</p>
-          <p>quod a te inter secreta otia didiceram. trans</p>
-          <p>ferre in actum publicae administrationis optavi;</p>
-          <p>Tu mihi et qui te sapientium mentibus inseruit</p>
-          <p>deus conscii nullum me ad magistratum nisi</p>
-          <p>commune omnium bonorum studium de</p>
-          <p>tulisse. Inde cum improbis graves inexorabi</p>
-          <p>lesque discordiae et quod conscientiae liber</p>
-          <p>tas habet. pro tuendo iure spreta potentiorum</p>
-          <p>semper offensio. Quotiens ego conigastum.</p>
-          <p>inimbecillis cuiusque fortunas impetum fa</p>
-          <p>cientem. obvius excepi. quotiens trigguillam </p>
+           totiusque vitae rationem. <a id="call_1" class="apparat"><span
+              id="link1"><span class="call">A</span> ad caelestis ordinis exempla<br/>
+             formares</a></span>. Haecine praemia referimus tibi<br/>
+           obsequentes; Atqui tu hanc sententiam Pla <br/>
+          tonis ore sanxisti beatas fore res publicas.<br/>
+          si eas vel studiosi sapientiae regerent. vel<br/>
+          earum rectores studere sapientiae contigisset.<br/>
+          Tu eiusdem viri ore hanc sapientibus capessendae<br/>
+          rei .p(ublicae). necessariam causam esse monuisti;<br/>
+          ne improbis flagitiosisque civibus urbium relicta<br/>
+          gubernacula. pestem bonis ac perniciem<br/>
+          ferrent. Hanc igitur auctoritatem secutus.<br/>
+          quod a te inter secreta otia didiceram. trans<br/>
+          ferre in actum publicae administrationis optavi;<br/>
+          Tu mihi et qui te sapientium mentibus inseruit<br/>
+          deus conscii nullum me ad magistratum nisi<br/>
+          commune omnium bonorum studium de<br/>
+          tulisse. Inde cum improbis graves inexorabi<br/>
+          lesque discordiae et quod conscientiae liber<br/>
+          tas habet. pro tuendo iure spreta potentiorum<br/>
+          semper offensio. Quotiens ego conigastum.<br/>
+          inimbecillis cuiusque fortunas impetum fa<br/>
+          cientem. obvius excepi. quotiens trigguillam <br/>
         </div>
-        <aside class="col col-4" id="sidebar">
-          <h2>Marginalia (more information about them <i>here</i>)</h2>
-          <p><span class="popup1" style="visibility: visible;" id="popup1_4">A Provinciales super milites qui a militia liberi sunt. Et nulli quicquam debent. 
-            Idem prolitteri dicti quod soli prole faveant;</span></p>
-          <p></p>
-          <p></p>
-          <p></p>
+        <aside class="col col-6" id="sidebar">
+          <h2>Marginalia (more information <i>here</i>)</h2>
+          <span class="marginnote" style="visibility: visible;" id="popup1_4">A Provinciales super milites qui a militia liberi sunt. Et nulli quicquam debent. 
+            Idem prolitteri dicti quod soli prole faveant;</span><br/>
+          <br/>
+          <br/>
+          <br/>
         </aside>
       </div>
     </div>
@@ -56,8 +60,8 @@
       {{!-- {{This is a Handlebars template}} --}}
       <div class="sidebar-note border border-transparent rounded my-3 p-3" data-note-id="{{id}}">
         <h5>{{type}}</h5>
-        <p>{{{content}}}</p> 
-        <p class="text-right"><small>{{author}}</small></p>
+        {{{content}}}<br/> 
+        <p class="text-right"><small>{{author}}</small><br/>
       </div>
     </script>
     <script src="libs/handlebars/handlebars-v4.0.11.js"></script>
