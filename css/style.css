@@ -1,0 +1,33 @@
+.sidebar-note {
+    cursor: pointer;
+}
+.note-marker {
+    cursor: pointer;
+}
+
+p {
+    margin-top: 100pt;
+}
+
+#link {
+    background-color: #FFFF00;
+}
+
+/*displays of the popup*/
+span.popup{
+    position: absolute;
+    width: 200px;
+    visibility: hidden;
+    background: #F2EFEF;
+    padding: 0em 1em 0em 1em;
+    border: solid 1px;
+    font-size: 90%;
+    font-family: Helvetica, Sans-serif;
+    line-height: 1.4;
+    -moz-border-radius: .5em;
+    -webkit-border-radius: .5em;
+    border-radius: .5em;
+    box-shadow: 10px 10px 5px #888888;
+    z-index: 250;
+}
+/*displays of the popup*/
