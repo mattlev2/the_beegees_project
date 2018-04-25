@@ -21,7 +21,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
         <h1>{$page-title}</h1>
         <p>Searched string: "{$searchphrase}"</p>
         { (:Show the string in context if asked and if found in the main text:)
-                (let $extrait := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/text()[contains(., $searchphrase)]
+                (let $extrait := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., $searchphrase)]
                 return
                     (
                     if (exists($extrait))
@@ -33,7 +33,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                                 return
                                     <li>
                                         From folio {$localisation_extrait}<br/>
-                                        <i>template to match the text between two lb elements</i>
+                                        <i>{$extrait/parent::phrase//text()}</i>
                                     </li>
                             
                             }
