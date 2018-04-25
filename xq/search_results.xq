@@ -1,6 +1,5 @@
 xquery version "3.0"; (:Courte description de la feuille: :)
-import module namespace x101log =
-"http://www.exist-db.org/book/namespaces/exist101" at "log-module.xqm";
+
 
 declare namespace html = "http://www.w3.org/1999/xhtml";
 declare namespace functx = "http://www.functx.com";
