@@ -21,11 +21,20 @@ p {
     background-color: Tomato;
 }
 
+#transcription{
+  line-height: 1.8em;
+}
+#ms-image-container{
+  overflow-x:hidden;
+}
+.ms-image{
+  max-width: 100%;
+}
+
 /*displays of the popup*/
 
 span.marginnote {
     position: absolute;
-    width: 500px;
     visibility: hidden;
     padding: 0em 1em 0em 1em;
     font-size: 90%;
@@ -64,4 +73,6 @@ span.popup2 {
 /*displays of the popup*/
 
 
-fieldset{margin-bottom:50px;}
+fieldset{
+  margin-bottom:50px;
+}

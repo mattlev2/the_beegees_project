@@ -10,67 +10,74 @@
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
-    <div><h3>Search tool</h3>
-      <form
-        method="POST"
-        action="search_results.xq">
-        <input
-          type="text"
-          name="searchphrase"
-          size="40"/>
-        <fieldset class="f2">
-          <div class="box" name="form"><input type="checkbox" name="select_type_of_text1" id="option1" value="1">Search in the main text</div>
-          <div class="box" name="form"><input type="checkbox" name="select_type_of_text2" id="option2" value="2">Search in the marginalia</div>
-          <div class="box" name="form"><input type="checkbox" name="select_type_of_text3" id="option3" value="3">Search in the interlinear glosses</div>
-        </fieldset>
-        <input
-          type="submit"
-          value="Let's do this!"/>
-      </form>
-    </div>
     <div class="container-fluid" id="site-wrapper">
-      <div class="row py-5">
-        <div class="col-1 col-5 mx-auto">
-          <h1>Transcription</h1>
-          <fieldset class="f2"> <!--To be continued, and the .js file too-->
-            <legend>
-              <h3>Options</h3>
-            </legend>
-            <div class="box" name="form"><input type="checkbox" name="fieldset2-1" id="options1" class="mycheck-option" unchecked="unchecked"> Highlight the glossed part of the text</div>
-          </fieldset>
-          <!--THis is an example <a tabindex="0" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a><br/>-->
-          
-           totiusque vitae rationem. <a id="call_1" class="apparat"><span
-              id="link1"><span class="call">A</span> ad caelestis ordinis exempla<br/>
-             formares</a></span>. Haecine praemia referimus tibi<br/>
-           obsequentes; Atqui tu hanc sententiam Pla <br/>
-          tonis ore sanxisti beatas fore res publicas.<br/>
-          si eas vel studiosi sapientiae regerent. vel<br/>
-          earum rectores studere sapientiae contigisset.<br/>
-          Tu eiusdem viri ore hanc sapientibus capessendae<br/>
-          rei .p(ublicae). necessariam causam esse monuisti;<br/>
-          ne improbis flagitiosisque civibus urbium relicta<br/>
-          gubernacula. pestem bonis ac perniciem<br/>
-          ferrent. Hanc igitur auctoritatem secutus.<br/>
-          quod a te inter secreta otia didiceram. trans<br/>
-          ferre in actum publicae administrationis optavi;<br/>
-          Tu mihi et qui te sapientium mentibus inseruit<br/>
-          deus conscii nullum me ad magistratum nisi<br/>
-          commune omnium bonorum studium de<br/>
-          tulisse. Inde cum improbis graves inexorabi<br/>
-          lesque discordiae et quod conscientiae liber<br/>
-          tas habet. pro tuendo iure spreta potentiorum<br/>
-          semper offensio. Quotiens ego conigastum.<br/>
-          inimbecillis cuiusque fortunas impetum fa<br/>
-          cientem. obvius excepi. quotiens trigguillam <br/>
+      <div class="row">
+        <div class="col-12"><h3>Search tool</h3>
+          <form
+            method="POST"
+            action="search_results.xq">
+            <input
+              type="text"
+              name="searchphrase"
+              size="40"/>
+            <fieldset class="f2">
+              <div class="box" name="form"><input type="checkbox" name="select_type_of_text1" id="option1" value="1">Search in the main text</div>
+              <div class="box" name="form"><input type="checkbox" name="select_type_of_text2" id="option2" value="2">Search in the marginalia</div>
+              <div class="box" name="form"><input type="checkbox" name="select_type_of_text3" id="option3" value="3">Search in the interlinear glosses</div>
+            </fieldset>
+            <input
+              type="submit"
+              value="Let's do this!"/>
+          </form>
+          <button class="btn btn-light" data-action="show" id="toggle-all-interlinear">Show all Interlinear Glosses</button>
         </div>
-        <aside class="col col-6" id="sidebar">
+      </div>
+      <div class="row py-2">
+        <div class="col-4 bg-light" id="ms-image-container">
+          <img class="ms-image" src="Photos/kk.3.21-6v.jpg" alt="image of the manuscript">
+        </div>
+        <div class="col-5">
+          <h1>Transcription</h1>
+          <div id="transcription">
+
+            tonis ore sanxisti beatas fore <a class="glossed" data-glossed-by="marginalia" data-marginalia-id="1">res publicas.<br/>
+              si eas vel studiosi</a> sapientiae regerent. vel<br/>
+            totiusque vitae rationem.  ad caelestis ordinis exempla<br/>
+            formares. <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="this is the text of the interlinear gloss">Haecene</a> praemia referimus tibi<br/>
+            obsequentes; Atqui tu hanc sententiam Pla <br/>
+
+
+
+            totiusque vitae rationem. <a id="call_1" class="apparat"><span
+                                                     id="link1"><span class="call">A</span> ad caelestis ordinis exempla<br/>
+                   formares</a></span>. Haecine praemia referimus tibi<br/>
+               obsequentes; Atqui tu hanc sententiam Pla <br/>
+               tonis ore sanxisti beatas fore res publicas.<br/>
+               si eas vel studiosi sapientiae regerent. vel<br/>
+               earum rectores studere sapientiae contigisset.<br/>
+               Tu eiusdem viri ore hanc sapientibus capessendae<br/>
+               rei .p(ublicae). necessariam causam esse monuisti;<br/>
+               ne improbis flagitiosisque civibus urbium relicta<br/>
+               gubernacula. pestem bonis ac perniciem<br/>
+               ferrent. Hanc igitur auctoritatem secutus.<br/>
+               quod a te inter secreta otia didiceram. trans<br/>
+               ferre in actum publicae administrationis optavi;<br/>
+               Tu mihi et qui te sapientium mentibus inseruit<br/>
+               deus conscii nullum me ad magistratum nisi<br/>
+               commune omnium bonorum studium de<br/>
+               tulisse. Inde cum improbis graves inexorabi<br/>
+               lesque discordiae et quod conscientiae liber<br/>
+               tas habet. pro tuendo iure spreta potentiorum<br/>
+               semper offensio. Quotiens ego conigastum.<br/>
+               inimbecillis cuiusque fortunas impetum fa<br/>
+               cientem. obvius excepi. quotiens trigguillam <br/>
+          </div>
+        </div>
+        <aside class="col-3" id="marginalia">
           <h2>Marginalia (more information <i>here</i>)</h2>
-          <span class="marginnote" style="visibility: visible;" id="popup1_4">A Provinciales super milites qui a militia liberi sunt. Et nulli quicquam debent. 
-            Idem prolitteri dicti quod soli prole faveant;</span><br/>
-          <br/>
-          <br/>
-          <br/>
+          <div class="marginalia" data-marginalia-id="1">alkjsdlkjlasdj</div>
+          <div class="marginalia" data-marginalia-id="2">alkjsdlkjlasdj</div>
+
         </aside>
       </div>
     </div>
