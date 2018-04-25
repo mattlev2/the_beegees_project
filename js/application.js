@@ -2,12 +2,37 @@ $(document).ready(function(){
   /* initialise handlebarsjs templates
   these reference the ids of <script> tags in the HTML file
    */
-   $('.popover-dismiss').popover({
-  trigger: 'focus'
-});
-$(function () {
-  $('[data-toggle="popover"]').popover()
-});
+  $('.popover-dismiss').popover({
+    trigger: 'focus'
+  });
+  $('button#toggle-all-interlinear').click(function(){
+    if ($(this).data('action') === 'show'){
+      $('.glossed').popover('show');
+      $(this).data('action','hide');
+    } else {
+      $('.glossed').popover('hide');
+      $(this).data('action','show');
+    }
+  });
+  $('button[data-action="zoom-image"]').click(function(){
+    var scale = $('.ms-image[data-scale]').data('scale') || 0;
+    switch ($(this).data('direction')){
+      case 'in':
+        scale *= 1.8;
+        break;
+      case 'out':
+        scale *= 0.5;
+        break;
+    }
+    console.log(scale);
+    $('.ms-image').data('scale',scale);
+    $('.ms-image').css('transform','scale('+scale+')');
+  });
+  $('.ms-image').on('dragstart',function(e){
+    console.log(e.pageX,e.pageY);
+  });
+  $('#transcription br').replaceWith(' | ');
+  $('[data-toggle="popover"]').popover({trigger:'click'});
   var templates = {
     note : Handlebars.compile(document.getElementById("template-note").innerHTML),
     // [...]

@@ -21,11 +21,28 @@ p {
     background-color: Tomato;
 }
 
+#transcription{
+  line-height: 1.8em;
+  text-align: justify;
+}
+#ms-image-container{
+  overflow:hidden;
+}
+.ms-image{
+  max-width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+[data-glossed-by="interlinear"]{
+  border-bottom: 2px dotted grey;
+}
+.interlinear-b{
+  background-color: lightgrey;
+}
+
 /*displays of the popup*/
 
 span.marginnote {
     position: absolute;
-    width: 500px;
     visibility: hidden;
     padding: 0em 1em 0em 1em;
     font-size: 90%;
@@ -64,4 +81,12 @@ span.popup2 {
 /*displays of the popup*/
 
 
-fieldset{margin-bottom:50px;}
+fieldset{
+  margin-bottom:50px;
+}
+#image-controls{
+  position: absolute;
+  opacity: 0.9;
+  margin: 1.2em;
+  z-index: 9;
+}
