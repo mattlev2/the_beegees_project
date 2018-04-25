@@ -23,12 +23,19 @@ p {
 
 #transcription{
   line-height: 1.8em;
+  text-align: justify;
 }
 #ms-image-container{
   overflow-x:hidden;
 }
 .ms-image{
   max-width: 100%;
+}
+[data-glossed-by="interlinear"]{
+  border-bottom: 2px dotted grey;
+}
+.interlinear-b{
+  background-color: lightgrey;
 }
 
 /*displays of the popup*/

@@ -14,9 +14,8 @@ $(document).ready(function(){
       $(this).data('action','show');
     }
   });
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  });
+  $('#transcription br').replaceWith(' | ');
+  $('[data-toggle="popover"]').popover({trigger:'click'});
   var templates = {
     note : Handlebars.compile(document.getElementById("template-note").innerHTML),
     // [...]

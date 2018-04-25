@@ -10,34 +10,36 @@
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
-    <div class="container-fluid" id="site-wrapper">
-      <div class="row">
-        <div class="col-12"><h3>Search tool</h3>
-          <form
-            method="POST"
-            action="search_results.xq">
-            <input
-              type="text"
-              name="searchphrase"
-              size="40"/>
-            <fieldset class="f2">
-              <div class="box" name="form"><input type="checkbox" name="select_type_of_text1" id="option1" value="1">Search in the main text</div>
-              <div class="box" name="form"><input type="checkbox" name="select_type_of_text2" id="option2" value="2">Search in the marginalia</div>
-              <div class="box" name="form"><input type="checkbox" name="select_type_of_text3" id="option3" value="3">Search in the interlinear glosses</div>
-            </fieldset>
-            <input
-              type="submit"
-              value="Let's do this!"/>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+          <form class="form form-inline" method="POST" action="search_results.xq">
+            <input type="text" class="form-control form-control-input" name="searchphrase" placeholder="Enter your search term..." size="40"/>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="search-main-text" value="main-text">
+              <label class="form-check-label" for="search-main-text">Main Text</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="search-marginalia" value="marginalia">
+              <label class="form-check-label" for="search-marginalia">Marginalia</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="search-interlinear" value="interlinear">
+              <label class="form-check-label" for="search-interlinear">Interlinear Glosses</label>
+            </div>
+            <button type="submit" class="btn btn-success">Search</button>
           </form>
-          <button class="btn btn-light" data-action="show" id="toggle-all-interlinear">Show all Interlinear Glosses</button>
         </div>
-      </div>
+      </nav>
+    <div class="container-fluid" id="site-wrapper">
       <div class="row py-2">
         <div class="col-4 bg-light" id="ms-image-container">
           <img class="ms-image" src="Photos/kk.3.21-6v.jpg" alt="image of the manuscript">
         </div>
         <div class="col-5">
-          <h1>Transcription</h1>
+          <div class="row">
+          <h1 class="col-0">Transcription</h1>
+          <button class="btn btn-light" data-action="show" id="toggle-all-interlinear">Show all Interlinear Glosses</button>
+          </div>
           <div id="transcription">
 
             tonis ore sanxisti beatas fore <a class="glossed" data-glossed-by="marginalia" data-marginalia-id="1">res publicas.<br/>
@@ -53,10 +55,10 @@
                    formares</a></span>. Haecine praemia referimus tibi<br/>
                obsequentes; Atqui tu hanc sententiam Pla <br/>
                tonis ore sanxisti beatas fore res publicas.<br/>
-               si eas vel studiosi sapientiae regerent. vel<br/>
+               si eas vel <span class="interlinear-a">studiosi</span> sapientiae regerent. vel<br/>
                earum rectores studere sapientiae contigisset.<br/>
                Tu eiusdem viri ore hanc sapientibus capessendae<br/>
-               rei .p(ublicae). necessariam causam esse monuisti;<br/>
+               rei .p(ublicae). <span class="interlinear-b">necessariam</span> causam esse monuisti;<br/>
                ne improbis flagitiosisque civibus urbium relicta<br/>
                gubernacula. pestem bonis ac perniciem<br/>
                ferrent. Hanc igitur auctoritatem secutus.<br/>
