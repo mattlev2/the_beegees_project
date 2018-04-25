@@ -95,6 +95,8 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                                 {
                                     for $extract at $position in $extract (:Recherche d'une chaine de caractères. :)
                                     let $localisation_extract := $extract/preceding::pb/data(@n)
+                                    (:let $highlighted :=util-expand($extract/ancestor::phrase, "expand-xincludes=no"):)
+                                    
                                     return
                                         <li>
                                             From folio {$localisation_extract}<br/>
@@ -103,7 +105,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                                             
                                             <p
                                                 class="main-text"
-                                                data-marginalia-id="{$position}"><i>A bit of context first:</i>"{$extract/ancestor::phrase//text()}"</p>
+                                                data-marginalia-id="{$position}"><i>A bit of context first:</i>"{$extract/ancestor::phrase}"</p>
                                             {
                                                 if ($extract/parent::glossed)
                                                 then
