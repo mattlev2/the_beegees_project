@@ -21,11 +21,10 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
         <h1>{$page-title}</h1>
         <p>Searched string: "{$searchphrase}"</p>
         { (:Show the string in context if asked and if found in the main text:)
-            (if ($select_type_of_text = contains("1"))
-            then
-                (let $extrait := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/text()[contains(., concat(" ", $searchphrase, " "))]
+                (let $extrait := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., $searchphrase)]
                 return
-                    (if (exists($extrait))
+                    (
+                    if (exists($extrait))
                     then
                         (<ul>In the main text, I do have found the requested string:
                             {
@@ -34,7 +33,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                                 return
                                     <li>
                                         From folio {$localisation_extrait}<br/>
-                                        <i>template to match the text between two lb elements</i>
+                                        <i>{$extrait/parent::phrase//text()}</i>
                                     </li>
                             
                             }
@@ -43,12 +42,10 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                         ('The main text does not contains the string you are looking for. You should try again later!')
                     )
                 )
-            else
-                ()
-            )
+            
         }
-        { (:Show the string in context if asked and if found in the marginalia:)
-            (if ($select_type_of_text = contains("2"))
+        { (:(\:Show the string in context if asked and if found in the marginalia:\)
+            (if ($select_type_of_text = contains(., "2"))
             then
                 (let $extrait2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
                 return
@@ -56,7 +53,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                     then
                         (<ul>In the marginalia, I do have found the requested string:
                             {
-                                for $extrait2 in $extrait2 (:Recherche d'une chaine de caractères. :)
+                                for $extrait2 in $extrait2 (\:Recherche d'une chaine de caractères. :\)
                                 let $localisation_extrait := $extrait2/preceding::pb/data(@n)
                                 
                                 return
@@ -74,17 +71,17 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
             else
                 ()
             )
-        }
-        { (:Show the string in context if asked and if found in the interlinear glosses:)
-            (if ($select_type_of_text = contains("3"))
+        :)''}
+        {''(: (\:Show the string in context if asked and if found in the interlinear glosses:\)
+            (if ($select_type_of_text = contains(., "3"))
             then
-                (let $extrait2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
+                (let $extrait3 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
                 return
                     (if (exists($extrait3))
                     then
                         (<ul>In the interlinear gloss, I do  have found the requested string:
                             {
-                                for $extrait3 in $extrait3 (:Recherche d'une chaine de caractères. :)
+                                for $extrait3 in $extrait3 (\:Recherche d'une chaine de caractères. :\)
                                 let $localisation_extrait := $extrait3/preceding::pb/data(@n)
                                 let $gloss_for := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"]/text()
                                 return
@@ -103,6 +100,6 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
             else
                 ()
             )
-        }
+        :)}
     </body>
 </html>
