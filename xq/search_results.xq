@@ -24,7 +24,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
         { (:Show the string in context if asked and if found in the main text:)
             (if ($select_type_of_text = contains("1"))
             then
-                (let $extrait := doc("transcription.xml")/text/text()[contains(., concat(" ", $searchphrase, " "))]
+                (let $extrait := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/text()[contains(., concat(" ", $searchphrase, " "))]
                 return
                     (if (exists($extrait))
                     then
@@ -51,7 +51,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
         { (:Show the string in context if asked and if found in the marginalia:)
             (if ($select_type_of_text = contains("2"))
             then
-                (let $extrait2 := doc("transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
+                (let $extrait2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
                 return
                     (if (exists($extrait2))
                     then
@@ -79,18 +79,20 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
         { (:Show the string in context if asked and if found in the interlinear glosses:)
             (if ($select_type_of_text = contains("3"))
             then
-                (let $extrait3 := doc("transcription.xml")/text/text()[contains(., concat(" ", $searchphrase, " "))]
+                (let $extrait2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
                 return
                     (if (exists($extrait3))
                     then
-                        (<ul>In the interlinear gloss, I do have found the requested string:
+                        (<ul>In the interlinear gloss, I do  have found the requested string:
                             {
                                 for $extrait3 in $extrait3 (:Recherche d'une chaine de caractères. :)
                                 let $localisation_extrait := $extrait3/preceding::pb/data(@n)
+                                let $gloss_for := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"]/text()
                                 return
                                     <li>
                                         From folio {$localisation_extrait}<br/>
                                         <i>template to match the text between two lb elements</i>
+                                        <b>gloss for:{$gloss_for}</b>
                                     </li>
                             
                             }
