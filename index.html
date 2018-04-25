@@ -33,7 +33,11 @@
     <div class="container-fluid" id="site-wrapper">
       <div class="row py-2">
         <div class="col-4 bg-light" id="ms-image-container">
-          <img class="ms-image" src="Photos/kk.3.21-6v.jpg" alt="image of the manuscript">
+          <div class="btn-group" id="image-controls" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" data-action="zoom-image" data-direction="in">+</button>
+            <button type="button" class="btn btn-secondary" data-action="zoom-image" data-direction="out">-</button>
+          </div>
+          <img class="ms-image" data-scale="1" src="Photos/kk.3.21-6v.jpg" alt="image of the manuscript">
         </div>
         <div class="col-5">
           <div class="row">
