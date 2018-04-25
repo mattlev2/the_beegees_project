@@ -1,6 +1,5 @@
 xquery version "3.0"; (:Fortement inspiré du cours de Erik Siegel & Adam Retter édité par O'Reilly:)
 declare namespace html = "http://www.w3.org/1999/xhtml";
-declare namespace tei = "http://www.tei-c.org/ns/1.0";
 declare namespace functx = "http://www.functx.com";
 declare option exist:serialize "method=html media-type=text/html"; (:Indiquer que le document produit est du html:)
 declare variable $page-title := "Ressources de la base de données";
