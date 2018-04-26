@@ -86,7 +86,7 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                 <h1>{$page-title}</h1>
                 <p>Searched string: "{$searchphrase}"</p>
                 { (:Show the string in context if asked and if found in the main text:)
-                    (let $extract := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., $searchphrase)]
+                    (let $extract := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., concat(" ", $searchphrase, " "))]
                     return
                         (
                         if (exists($extract))
