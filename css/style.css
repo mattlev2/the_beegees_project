@@ -14,8 +14,12 @@
 }
 .marginalia.selected{
 }
-a[data-glossed-by="marginalia"] {
+[data-glossed-by="marginalia"] {
     background-color: Tomato;
+}
+[data-glossed-by="marginalia"].active,
+.marginalia.active{
+  background-color: green;
 }
 
 p {

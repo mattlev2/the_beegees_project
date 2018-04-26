@@ -3,6 +3,18 @@ $(document).ready(function(){
   these reference the ids of <script> tags in the HTML file
    */
   $("#includedContent").load("html_subfile/html_output.html",function(){ 
+    $('.marginalia').click(function(){
+      $('[data-glossed-by="marginalia"],.marginalia').removeClass('active');
+      if (!$(this).hasClass('active')){
+      $(this).add('[data-glossed-by="marginalia"][data-marginalia-id="'+$(this).data('marginalia-id')+'"]').addClass('active');
+      }
+    });
+    $('[data-glossed-by="marginalia"]').click(function(){
+      $('[data-glossed-by="marginalia"],.marginalia').removeClass('active');
+      if (!$(this).hasClass('active')){
+      $(this).add('.marginalia[data-marginalia-id="'+$(this).data('marginalia-id')+'"]').addClass('active');
+      }
+    });
   $('button#toggle-all-interlinear').click(function(){
     if ($(this).data('action') === 'show'){
       $('.glossed').popover('show');
