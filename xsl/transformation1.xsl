@@ -13,8 +13,8 @@
                         <button type="button" class="btn btn-secondary" data-action="zoom-image"
                             data-direction="out">-</button>
                     </div>
-                    <img class="ms-image" data-scale="1" src="Photos/kk.3.21-6v.jpg"
-                        alt="image of the manuscript"/>
+                    <img class="ms-image" data-scale="1" src="Photos/kk.3.21-7r.jpg"
+                        alt="image of the manuscript">kk.3.21-7r</img>
                 </div>
                 <div class="col-5">
                     <div class="row">
@@ -29,7 +29,7 @@
                     <xsl:attribute name="class">col-3</xsl:attribute>
                     <xsl:attribute name="id">marginalia</xsl:attribute>
                     <h2>Marginalia</h2>
-                    <xsl:for-each select="//glossed[@where = 'marginal']">
+                    <div class="pre-scrollable"><xsl:for-each select="//glossed[@where = 'marginal']">
                         <xsl:element name="div">
                             <xsl:attribute name="class">marginalia</xsl:attribute>
                             <xsl:attribute name="data-marginalia-id">
@@ -38,7 +38,7 @@
                             </xsl:attribute>
                             <xsl:value-of select="@content"/>
                         </xsl:element>
-                    </xsl:for-each>
+                    </xsl:for-each></div>
                 </xsl:element>
             </div>
         </div>
@@ -101,9 +101,7 @@
     </xsl:template>-->
 
     <xsl:template match="//call">
-        <xsl:if test="parent::glossed">
             <b> [<xsl:value-of select="."/>] </b>
-        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>
