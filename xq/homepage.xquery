@@ -49,11 +49,11 @@ return
                             (interlinear and marginal almost in Latin, few of them in Old English)
                             and also some subsequent additions (12th century and later). </p>
                         <p>The majority of glosses are written by a single hand, except for rare later addictions;
-                            They are divided in three types:</p><p>1) interlinear glosses, used to to clarify the classical Latin;</p>
-                        <p>2) marginal glosses, used to explain the main text, i.e. meaning of single words, sentences and events mentioned in;
-                            they are anchored to the main text by a set of marks (mostly Greek alphabet).</p>
-                        <p>3) additional glosses written in red capital letters,
-                            wich refers to the rethorical aspects.</p>
+                            They are divided in three types:</p><ol><li>1) interlinear glosses, used to to clarify the classical Latin;</li>
+                            <li>2) marginal glosses, used to explain the main text, i.e. meaning of single words, sentences and events mentioned in;
+                                they are anchored to the main text by a set of marks (mostly Greek alphabet).</li>
+                            <li>3) additional glosses written in red capital letters,
+                                wich refers to the rethorical aspects.</li></ol>
                         <h5>The BGS'Project aims:</h5>
                         <p>1) to give a direct access to the text based on interpretative transcription (i. e. restitution of capital letters, distinction between <i>u</i> / <i>v</i>, modern words' segmentation) in a easy way, also for the readers not used to the Latin paleography;</p>
                         <p>2) to offer the possibility to compare the original layout and the modern transcription;</p>
