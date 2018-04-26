@@ -109,3 +109,5 @@ fieldset {
     margin: 1.2em;
     z-index: 9;
 }
+
+img#photo {transform:rotate(90deg);}
