@@ -105,14 +105,14 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
                                             
                                             <p
                                                 class="main-text"
-                                                data-marginalia-id="{$position}"><i>A bit of context first:</i>"{$extract/ancestor::phrase}"</p>
+                                                data-marginalia-id="{$position}"><h5>A bit of context first:</h5>"{$extract/ancestor::phrase}"</p>
                                             {
                                                 if ($extract/parent::glossed)
                                                 then
                                                     <div
                                                         class="marginalia"
-                                                        data-marginalia-id="{$position}"><i>The found string is part of a glossed text</i> ({$extract/parent::glossed}).
-                                                        <i>The gloss was:</i>{$extract/parent::glossed/data(@content)}</div>
+                                                        data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of a glossed sentence</h5> <p>"{$extract/parent::glossed}"</p>
+                                                        <h5>The gloss is:</h5><p>"{$extract/parent::glossed/data(@content)}"</p></div>
                                                 
                                                 else
                                                     ()
