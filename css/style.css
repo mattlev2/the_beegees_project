@@ -110,3 +110,16 @@ fieldset {
     z-index: 9;
 }
 
+figcaption {
+    caption-side: top;
+    margin-bottom: 50px;
+}
+
+.buttonery {
+    float: right;
+}
+
+.pre-scrollable {
+    max-height: 600px;
+    
+}
