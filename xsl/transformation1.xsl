@@ -13,8 +13,16 @@
                         <button type="button" class="btn btn-secondary" data-action="zoom-image"
                             data-direction="out">-</button>
                     </div>
+<<<<<<< HEAD
                     <img class="ms-image" data-scale="1" src="Photos/kk.3.21-7r.jpg"
                         alt="image of the manuscript">kk.3.21-7r</img>
+=======
+                    <figure>
+                        <img class="ms-image" data-scale="1" src="Photos/kk.3.21-6r.jpg"
+                            alt="image of the manuscript"/>
+                        <figcaption>Ms kk.3.21-6v</figcaption>
+                    </figure>
+>>>>>>> 47504272cc34cc5767790981e691cca93f1ad88c
                 </div>
                 <div class="col-5">
                     <div class="row">
@@ -101,7 +109,13 @@
     </xsl:template>-->
 
     <xsl:template match="//call">
+<<<<<<< HEAD
             <b> [<xsl:value-of select="."/>] </b>
+=======
+        <xsl:if test="parent::glossed">
+            <b> [<xsl:value-of select="text()"/>] </b>
+        </xsl:if>
+>>>>>>> 47504272cc34cc5767790981e691cca93f1ad88c
     </xsl:template>
 
 </xsl:stylesheet>
