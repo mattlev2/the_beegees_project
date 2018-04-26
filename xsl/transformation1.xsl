@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
     <xsl:output omit-xml-declaration="yes"/>
+    <!--<xsl:strip-space elements="*"/>-->
     <xsl:template match="/">
         <div class="container-fluid" id="site-wrapper">
             <div class="row py-2">
@@ -13,16 +14,13 @@
                         <button type="button" class="btn btn-secondary" data-action="zoom-image"
                             data-direction="out">-</button>
                     </div>
-<<<<<<< HEAD
                     <img class="ms-image" data-scale="1" src="Photos/kk.3.21-7r.jpg"
                         alt="image of the manuscript">kk.3.21-7r</img>
-=======
                     <figure>
                         <img class="ms-image" data-scale="1" src="Photos/kk.3.21-6r.jpg"
                             alt="image of the manuscript"/>
                         <figcaption>Ms kk.3.21-6v</figcaption>
                     </figure>
->>>>>>> 47504272cc34cc5767790981e691cca93f1ad88c
                 </div>
                 <div class="col-5">
                     <div class="row">
@@ -37,16 +35,19 @@
                     <xsl:attribute name="class">col-3</xsl:attribute>
                     <xsl:attribute name="id">marginalia</xsl:attribute>
                     <h2>Marginalia</h2>
-                    <div class="pre-scrollable"><xsl:for-each select="//glossed[@where = 'marginal']">
-                        <xsl:element name="div">
-                            <xsl:attribute name="class">marginalia</xsl:attribute>
-                            <xsl:attribute name="data-marginalia-id">
-                                <xsl:value-of
-                                    select="count(preceding::glossed[@where = 'marginal']) + 1"/>
-                            </xsl:attribute>
-                            <xsl:value-of select="@content"/>
-                        </xsl:element>
-                    </xsl:for-each></div>
+                    <div class="pre-scrollable">
+                        <xsl:for-each select="//glossed[@where = 'marginal']">
+                            <xsl:element name="div">
+                                <xsl:attribute name="class">marginalia</xsl:attribute>
+                                <xsl:attribute name="data-marginalia-id">
+                                    <xsl:value-of
+                                        select="count(preceding::glossed[@where = 'marginal']) + 1"
+                                    />
+                                </xsl:attribute>
+                                <xsl:value-of select="@content"/>
+                            </xsl:element>
+                        </xsl:for-each>
+                    </div>
                 </xsl:element>
             </div>
         </div>
@@ -109,13 +110,10 @@
     </xsl:template>-->
 
     <xsl:template match="//call">
-<<<<<<< HEAD
-            <b> [<xsl:value-of select="."/>] </b>
-=======
+        <b> [<xsl:value-of select="."/>] </b>
         <xsl:if test="parent::glossed">
             <b> [<xsl:value-of select="text()"/>] </b>
         </xsl:if>
->>>>>>> 47504272cc34cc5767790981e691cca93f1ad88c
     </xsl:template>
 
 </xsl:stylesheet>
