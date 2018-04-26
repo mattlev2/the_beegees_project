@@ -101,9 +101,9 @@
     </xsl:template>-->
 
     <xsl:template match="//call">
-        <b>
-            [<xsl:value-of select="."/>]
-        </b>
+        <xsl:if test="parent::glossed">
+            <b> [<xsl:value-of select="."/>] </b>
+        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>
