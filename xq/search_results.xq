@@ -7,6 +7,7 @@ declare option exist:serialize "highlight-matches=both";
 declare option exist:serialize "method=html media-type=text/html"; (:Indiquer que le document produit est du html:)
 
 declare variable $page-title := "Result(s) page";
+declare variable $nbsp := "&#xa0;";
 declare variable $searchphrase := request:get-parameter("searchphrase", ());
 declare variable $main_text := request:get-parameter("main_text", ());
 declare variable $marginalia := request:get-parameter("marginalia", ());
@@ -29,7 +30,12 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
     <body>
         <nav
             class="navbar navbar-expand-lg navbar-light bg-light">
+            <a
+                href="homepage.xquery"
+                class="btn btn-info"
+                role="button">Return to main page</a>
             <div>
+                
                 <form
                     class="form form-inline"
                     method="POST"
@@ -86,9 +92,9 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
             <div
                 class="row py-2">
                 
-                <h1>Searched string: "{$searchphrase}" <a
+                <h1>Searched string: "<a
                         href="http://logeion.uchicago.edu/index.html#{$searchphrase}"
-                        target="_blank">(link to the Logeion)</a></h1>
+                        target="_blank">{$searchphrase}</a>"</h1><br/>
                 
                 
                 {
@@ -99,36 +105,54 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                 
                                 (::) (:The first box if checked returns 1, the second 2, the third 3:)
                                 
-                                
+                                (:Things that doesnt work: 
+                                - strings before punctuation. 
+                                - Find a way to avoid the tokenization of 
+                                the call letter:)
                                 (:Show the string in context if asked and if found in the main text:)
-                                (let $extract := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., concat(" ", $searchphrase, " "))]
+                                (let $extract := doc("/db/apps/the_beegees_project/data/transcription_final.xml")/text//text()[contains(., concat(" ", $searchphrase))]
                                 return
                                     (<h5>Main text</h5>,
                                     if (exists($extract))
                                     then
-                                        (<ul>In the main text, I have found the requested string:
+                                        (<ul>
                                             {
                                                 for $extract at $position in $extract (:Recherche d'une chaine de caractères. :)
                                                 let $localisation_extract := $extract/preceding::pb/data(@n)
-                                                (:let $highlighted :=util-expand($extract/ancestor::phrase, "expand-xincludes=no"):)
+                                                (:let $highlighted :=util-expand($extract/ancestor::region, "expand-xincludes=no"):)
                                                 
                                                 return
                                                     <li>
-                                                        From folio {$localisation_extract}<br/>
+                                                        Folio {$localisation_extract}<br/>
                                                         
                                                         
                                                         
                                                         <p
                                                             class="main-text"
-                                                            data-marginalia-id="{$position}"><h5>Context:</h5>"{$extract/ancestor::phrase}"</p>
+                                                            data-marginalia-id="{$position}"><h5>Context:</h5>"{
+                                                                for $item in fn:tokenize($extract/ancestor::region, '\W+')
+                                                                return
+                                                                    <a
+                                                                        href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                            }"</p>
                                                         {
                                                             if ($extract/parent::glossed)
                                                             then
                                                                 <div
-                                                                    class="marginalia"
-                                                                    data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of the following glossed sentence:</h5>
-                                                                    <p>"{$extract/parent::glossed}"</p>
-                                                                    <h5>The gloss to this sentence is:</h5><p>"{$extract/parent::glossed/data(@content)}"</p></div>
+                                                                    class="marginalias"
+                                                                    data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of the following glossed word or sentence:</h5>
+                                                                    <p>"{
+                                                                            for $item in fn:tokenize($extract/parent::glossed, '\W+')
+                                                                            return
+                                                                                <a
+                                                                                    href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                        }"</p>
+                                                                    <h5>The gloss to this sentence or word is:</h5><p>"{
+                                                                            for $item in fn:tokenize($extract/parent::glossed/data(@content), '\W+')
+                                                                            return
+                                                                                <a
+                                                                                    href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                        }"</p></div>
                                                             
                                                             else
                                                                 ()
@@ -150,28 +174,47 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                     (if (contains($select_type_of_text, "2"))
                     then
                         <div>{
-                                (let $extract2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
+                                (let $extract2 := doc("/db/apps/the_beegees_project/data/transcription_final.xml")/text//glossed[@where = "marginal"][data(@content[contains(., $searchphrase)])]
                                 return
-                                    (<h5>Marginalia</h5>,
+                                    (<h5>Marginal glosses</h5>,
                                     if (exists($extract2))
                                     then
-                                        
-                                        (
-                                        <ul>In the marginalia, I do have found the requested string:
+                                        (<ul>
                                             {
-                                                for $extract2 in $extract2 (:Recherche d'une chaine de caractères. :)
+                                                for $extract2 at $position in $extract2 (:Recherche d'une chaine de caractères. :)
                                                 let $localisation_extract := $extract2/preceding::pb/data(@n)
-                                                
                                                 return
                                                     <li>
-                                                        From folio {$localisation_extract}<br/>
-                                                        <i>template to match the text between two lb elements</i>
+                                                        Folio {$localisation_extract}<br/>
+                                                        <div
+                                                            class="marginalias"
+                                                            data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of the following marginal gloss:</h5>
+                                                            <p>"{
+                                                                    for $item in $extract2/fn:tokenize(data(@content), '\W+')
+                                                                    return
+                                                                        <a
+                                                                            href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                }"</p>
+                                                            <h5>The glossed word or sentence is:</h5><p>"{
+                                                                    for $item in fn:tokenize($extract2/text(), '\W+')
+                                                                    return
+                                                                        <a
+                                                                            href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                }"</p><p
+                                                                class="main-text"
+                                                                data-marginalia-id="{$position}"><h5>Context:</h5>"{
+                                                                    for $item in $extract2/fn:tokenize($extract2/ancestor::region, '\W+')
+                                                                    return
+                                                                        <a
+                                                                            href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                }"</p></div>
+                                                    
+                                                    
                                                     </li>
-                                            
                                             }
                                         </ul>)
                                     else
-                                        ('There is no such string in the marginalia, sorry ! ')
+                                        ('There is no such string in the marginal glosses, sorry ! ')
                                     )
                                 )
                             }</div>
@@ -184,21 +227,41 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                     (if (contains($select_type_of_text, "3"))
                     then
                         <div>{
-                                (let $extract3 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
+                                (let $extract3 := doc("/db/apps/the_beegees_project/data/transcription_final.xml")/text//glossed[@where = "interlinear"][data(@content[contains(., $searchphrase)])]
                                 return
                                     (<h5>Interlinear glosses</h5>,
                                     if (exists($extract3))
                                     then
-                                        (<ul>In the interlinear gloss, I do have found the requested string:
+                                        (<ul>
                                             {
-                                                for $extract3 in $extract3 (:Recherche d'une chaine de caractères. :)
+                                                for $extract3 at $position in $extract3 (:Recherche d'une chaine de caractères. :)
                                                 let $localisation_extract := $extract3/preceding::pb/data(@n)
-                                                let $gloss_for := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "interlinear"]/text()
                                                 return
                                                     <li>
-                                                        From folio {$localisation_extract}<br/>
-                                                        <i>template to match the text between two lb elements</i>
-                                                        <b>gloss for:{$gloss_for}</b>
+                                                        Folio {$localisation_extract}<br/>
+                                                        <div
+                                                            class="marginalias"
+                                                            data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of the following interlinear gloss:</h5>
+                                                            <p>"{
+                                                                    for $item in $extract3/fn:tokenize(data(@content), '\W+')
+                                                                    return
+                                                                        <a
+                                                                            href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                }"</p>
+                                                            <h5>The glossed word or sentence is:</h5><p>"{
+                                                                    for $item in $extract3/fn:tokenize($extract3/text(), '\W+')
+                                                                    return
+                                                                        <a
+                                                                            href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                }"</p>
+                                                            <p
+                                                                class="main-text"
+                                                                data-marginalia-id="{$position}"><h5>Context:</h5>"{
+                                                                    for $item in $extract3/fn:tokenize($extract3/ancestor::region, '\W+')
+                                                                    return
+                                                                        <a
+                                                                            href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
+                                                                }"</p></div>
                                                     </li>
                                             
                                             }
