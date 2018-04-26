@@ -8,7 +8,10 @@ declare option exist:serialize "method=html media-type=text/html"; (:Indiquer qu
 
 declare variable $page-title := "Result(s) page";
 declare variable $searchphrase := request:get-parameter("searchphrase", ());
-declare variable $select_type_of_text := request:get-parameter(concat("select_type_of_text1", "select_type_of_text2", "select_type_of_text3"), ()); (:The first box if checked returns 1, the second 2, the third 3:)
+declare variable $main_text := request:get-parameter("main_text", ());
+declare variable $marginalia := request:get-parameter("marginalia", ());
+declare variable $interlinear := request:get-parameter("interlinear", ());
+
 
 
 <html>
@@ -83,79 +86,88 @@ declare variable $select_type_of_text := request:get-parameter(concat("select_ty
             id="site-wrapper">
             <div
                 class="row py-2">
-                <h1>{$page-title}</h1>
-                <p>Searched string: "{$searchphrase}"</p>
-                { (:Show the string in context if asked and if found in the main text:)
-                    (let $extract := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., concat(" ", $searchphrase, " "))]
-                    return
-                        (
-                        if (exists($extract))
-                        then
-                            (<ul>In the main text, I do have found the requested string:
-                                {
-                                    for $extract at $position in $extract (:Recherche d'une chaine de caractères. :)
-                                    let $localisation_extract := $extract/preceding::pb/data(@n)
-                                    (:let $highlighted :=util-expand($extract/ancestor::phrase, "expand-xincludes=no"):)
-                                    
-                                    return
-                                        <li>
-                                            From folio {$localisation_extract}<br/>
-                                            
-                                            
-                                            
-                                            <p
-                                                class="main-text"
-                                                data-marginalia-id="{$position}"><h5>A bit of context first:</h5>"{$extract/ancestor::phrase}"</p>
-                                            {
-                                                if ($extract/parent::glossed)
-                                                then
-                                                    <div
-                                                        class="marginalia"
-                                                        data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of a glossed sentence</h5> <p>"{$extract/parent::glossed}"</p>
-                                                        <h5>The gloss is:</h5><p>"{$extract/parent::glossed/data(@content)}"</p></div>
-                                                
-                                                else
-                                                    ()
-                                            }
-                                        
-                                        </li>
-                                
-                                }
-                            </ul>)
-                        else
-                            ('The main text does not contains the string you are looking for. You should try again later!')
-                        )
-                    )
+                <h1>Searched string: "{$searchphrase}" <a
+                        href="http://logeion.uchicago.edu/index.html#{$searchphrase}"
+                        target="_blank">(link to the Logeion)</a></h1>
                 
+                
+                {
+                    
+                    (:let $select_type_of_text := concat($main_text, $marginalia, $interlinear):) (:The first box if checked returns 1, the second 2, the third 3:)
+                    
+                        
+                        (:Show the string in context if asked and if found in the main text:)
+                        (let $extract := doc("/db/apps/the_beegees_project/data/transcription.xml")/text//text()[contains(., concat(" ", $searchphrase, " "))]
+                        return
+                            
+                            (
+                            if (exists($extract))
+                            then
+                                (<ul>In the main text, I have found the requested string:
+                                    {
+                                        for $extract at $position in $extract (:Recherche d'une chaine de caractères. :)
+                                        let $localisation_extract := $extract/preceding::pb/data(@n)
+                                        (:let $highlighted :=util-expand($extract/ancestor::phrase, "expand-xincludes=no"):)
+                                        
+                                        return
+                                            <li>
+                                                From folio {$localisation_extract}<br/>
+                                                
+                                                
+                                                
+                                                <p
+                                                    class="main-text"
+                                                    data-marginalia-id="{$position}"><h5>Context:</h5>"{$extract/ancestor::phrase}"</p>
+                                                {
+                                                    if ($extract/parent::glossed)
+                                                    then
+                                                        <div
+                                                            class="marginalia"
+                                                            data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of the following glossed sentence:</h5>
+                                                            <p>"{$extract/parent::glossed}"</p>
+                                                            <h5>The gloss to this sentence is:</h5><p>"{$extract/parent::glossed/data(@content)}"</p></div>
+                                                    
+                                                    else
+                                                        ()
+                                                }
+                                            
+                                            </li>
+                                    
+                                    }
+                                </ul>)
+                            else
+                                ('The main text does not contains the string you are looking for. You should try again later!')
+                            )
+                        )
                 }
                 { (:(\:Show the string in context if asked and if found in the marginalia:\)
-            (if ($select_type_of_text = contains(., "2"))
-            then
-                (let $extract2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
-                return
-                    (if (exists($extract2))
+                    (if ($select_type_of_text = contains(., "2"))
                     then
-                        (<ul>In the marginalia, I do have found the requested string:
-                            {
-                                for $extract2 in $extract2 (\:Recherche d'une chaine de caractères. :\)
-                                let $localisation_extract := $extract2/preceding::pb/data(@n)
-                                
-                                return
-                                    <li>
-                                        From folio {$localisation_extract}<br/>
-                                        <i>template to match the text between two lb elements</i>
-                                    </li>
-                            
-                            }
-                        </ul>)
+                        (let $extract2 := doc("/db/apps/the_beegees_project/data/transcription.xml")/text/glossed[@where = "margin"][data(@content[contains(., concat(" ", $searchphrase, " "))])]
+                        return
+                            (if (exists($extract2))
+                            then
+                                (<ul>In the marginalia, I do have found the requested string:
+                                    {
+                                        for $extract2 in $extract2 (\:Recherche d'une chaine de caractères. :\)
+                                        let $localisation_extract := $extract2/preceding::pb/data(@n)
+                                        
+                                        return
+                                            <li>
+                                                From folio {$localisation_extract}<br/>
+                                                <i>template to match the text between two lb elements</i>
+                                            </li>
+                                    
+                                    }
+                                </ul>)
+                            else
+                                ('There is no such string in the marginalia, sorry ! ')
+                            )
+                        )
                     else
-                        ('There is no such string in the marginalia, sorry ! ')
+                        ()
                     )
-                )
-            else
-                ()
-            )
-        :)''}
+               :)''}
                 {
                     '' (: (\:Show the string in context if asked and if found in the interlinear glosses:\)
             (if ($select_type_of_text = contains(., "3"))

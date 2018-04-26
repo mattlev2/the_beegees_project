@@ -8,29 +8,29 @@
 .smaller {
     font-size: 10pt;
 }
-.marginalia{
-  margin: .5em;
-  padding: .2em;
+.marginalia {
+    margin: .5em;
+    padding: .2em;
 }
-.marginalia.selected{
+.marginalia.selected {
 }
-[data-glossed-by="marginalia"] {
+[data-glossed-by = "marginalia"] {
     background-color: Tomato;
     margin: 0 .2em;
 }
-[data-glossed-by="marginalia"].active,
-.marginalia.active{
-  background-color: green;
+[data-glossed-by = "marginalia"].active,
+.marginalia.active {
+    background-color: green;
 }
 
 p {
     margin-top: 20pt;
 }
-#welcome-splash .modal-dialog{
-max-width:80%;
+#welcome-splash .modal-dialog {
+    max-width: 80%;
 }
-.modal-content p{
-text-align:justify;
+.modal-content p {
+    text-align: justify;
 }
 #link1 {
     background-color: #FFFF00;
@@ -108,4 +108,18 @@ fieldset {
     opacity: 0.9;
     margin: 1.2em;
     z-index: 9;
+}
+
+figcaption {
+    caption-side: top;
+    margin-bottom: 50px;
+}
+
+.buttonery {
+    float: right;
+}
+
+.pre-scrollable {
+    max-height: 600px;
+    
 }
