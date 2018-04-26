@@ -16,7 +16,12 @@
 p {
     margin-top: 20pt;
 }
-
+#welcome-splash .modal-dialog{
+max-width:80%;
+}
+.modal-content p{
+text-align:justify;
+}
 #link1 {
     background-color: #FFFF00;
 }
