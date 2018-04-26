@@ -26,23 +26,22 @@
                         <xsl:attribute name="id">transcription</xsl:attribute>
                         <xsl:apply-templates/>
                     </xsl:element>
-                    <xsl:element name="aside">
-                        <xsl:attribute name="class">col-3</xsl:attribute>
-                        <xsl:attribute name="id">marginalia</xsl:attribute>
-                        <h2>Marginalia</h2>
-                        <xsl:for-each select="//glossed[@where = 'marginal']">
-                            <xsl:element name="div">
-                                <xsl:attribute name="class">marginalia</xsl:attribute>
-                                <xsl:attribute name="data-marginalia-id">
-                                    <xsl:value-of
-                                        select="count(preceding::glossed[@where = 'marginal']) + 1"
-                                    />
-                                </xsl:attribute>
-                                <xsl:value-of select="@content"/>
-                            </xsl:element>
-                        </xsl:for-each>
-                    </xsl:element>
                 </div>
+                <xsl:element name="aside">
+                    <xsl:attribute name="class">col-3</xsl:attribute>
+                    <xsl:attribute name="id">marginalia</xsl:attribute>
+                    <h2>Marginalia</h2>
+                    <xsl:for-each select="//glossed[@where = 'marginal']">
+                        <xsl:element name="div">
+                            <xsl:attribute name="class">marginalia</xsl:attribute>
+                            <xsl:attribute name="data-marginalia-id">
+                                <xsl:value-of
+                                    select="count(preceding::glossed[@where = 'marginal']) + 1"/>
+                            </xsl:attribute>
+                            <xsl:value-of select="@content"/>
+                        </xsl:element>
+                    </xsl:for-each>
+                </xsl:element>
             </div>
         </div>
     </xsl:template>
@@ -58,7 +57,7 @@
                 <xsl:value-of select="@content"/>
             </xsl:attribute>
             <xsl:if test="child::glossed[@where = 'marginal']">
-                <xsl:element name="a">
+                <xsl:element name="span">
                     <xsl:attribute name="class">glossed</xsl:attribute>
                     <xsl:attribute name="data-glossed-by">marginalia</xsl:attribute>
                     <xsl:attribute name="data-marginalia-id">
@@ -81,7 +80,7 @@
                 <xsl:value-of select="count(preceding::glossed[@where = 'marginal']) + 1"/>
             </xsl:attribute>
             <xsl:if test="child::glossed[@where = 'interlinear']">
-                <xsl:element name="a">
+                <xsl:element name="span">
                     <xsl:attribute name="class">glossed</xsl:attribute>
                     <xsl:attribute name="data-glossed-by">interlinear</xsl:attribute>
                     <xsl:attribute name="data-trigger">focus</xsl:attribute>
