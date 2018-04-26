@@ -5,11 +5,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <script src="libs/jquery/jquery-3.3.1.min.js"></script> 
-    <script> 
-    $(function(){{
-      $("#includedContent").load("html_subfile/html_output.html"); 
-    }});
-    </script> 
     <script type="text/javascript" src="libs/csi.js/csi.min.js"></script>
     <meta name="description" content="This is a prototype digital manuscript edition made during the DEMM Hack week at Cambridge University Library.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,6 +47,7 @@
       </div>
     </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button data-toggle="modal" data-target="#welcome-splash" class="btn btn-small btn-info">Show introduction</button>
         <div>
           <form class="form form-inline" method="post" action="search_results.xq">
             <input type="text" class="form-control form-control-input" name="searchphrase" placeholder="Enter your search term..." size="40"/>
@@ -68,6 +64,7 @@
               <label class="form-check-label" for="search-interlinear">Interlinear Glosses</label>
             </div>
             <button type="submit" class="btn btn-success">Search</button>
+
           </form>
         </div>
       </nav>

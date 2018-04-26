@@ -2,9 +2,7 @@ $(document).ready(function(){
   /* initialise handlebarsjs templates
   these reference the ids of <script> tags in the HTML file
    */
-  $('.popover-dismiss').popover({
-    trigger: 'focus'
-  });
+  $("#includedContent").load("html_subfile/html_output.html",function(){ 
   $('button#toggle-all-interlinear').click(function(){
     if ($(this).data('action') === 'show'){
       $('.glossed').popover('show');
@@ -55,4 +53,5 @@ $(document).ready(function(){
     $(this).addClass('bg-light border border-secondary');
     $('.note-marker[data-note-id="'+$(this).data('note-id')+'"').addClass('text-danger');
   });
+});
 });
