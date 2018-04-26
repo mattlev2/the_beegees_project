@@ -4,88 +4,40 @@
     <title>DEMM Hack Prototype</title>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <script src="libs/jquery/jquery-3.3.1.min.js"></script> 
+    <script> 
+    $(function(){{
+      $("#includedContent").load("html_subfile/html_output.html"); 
+    }});
+    </script> 
+    <script type="text/javascript" src="libs/csi.js/csi.min.js"></script>
     <meta name="description" content="This is a prototype digital manuscript edition made during the DEMM Hack week at Cambridge University Library.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-  </head>
+      </head>
   <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div>
-          <form class="form form-inline" method="POST" action="search_results.xq">
+          <form class="form form-inline" method="post" action="search_results.xq">
             <input type="text" class="form-control form-control-input" name="searchphrase" placeholder="Enter your search term..." size="40"/>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="search-main-text" value="main-text">
+              <input class="form-check-input" type="checkbox" id="search-main-text" value="main-text"/>
               <label class="form-check-label" for="search-main-text">Main Text</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="search-marginalia" value="marginalia">
+              <input class="form-check-input" type="checkbox" id="search-marginalia" value="marginalia"/>
               <label class="form-check-label" for="search-marginalia">Marginalia</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="search-interlinear" value="interlinear">
+              <input class="form-check-input" type="checkbox" id="search-interlinear" value="interlinear"/>
               <label class="form-check-label" for="search-interlinear">Interlinear Glosses</label>
             </div>
             <button type="submit" class="btn btn-success">Search</button>
           </form>
         </div>
       </nav>
-    <div class="container-fluid" id="site-wrapper">
-      <div class="row py-2">
-        <div class="col-4 bg-light" id="ms-image-container">
-          <div class="btn-group" id="image-controls" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" data-action="zoom-image" data-direction="in">+</button>
-            <button type="button" class="btn btn-secondary" data-action="zoom-image" data-direction="out">-</button>
-          </div>
-          <img class="ms-image" data-scale="1" src="Photos/kk.3.21-6v.jpg" alt="image of the manuscript">
-        </div>
-        <div class="col-5">
-          <div class="row">
-          <h1 class="col-0">Transcription</h1>
-          <button class="btn btn-light" data-action="show" id="toggle-all-interlinear">Show all Interlinear Glosses</button>
-          </div>
-          <div id="transcription">
-
-            tonis ore sanxisti beatas fore <a class="glossed" data-glossed-by="marginalia" data-marginalia-id="1">res publicas.<br/>
-              si eas vel studiosi</a> sapientiae regerent. vel<br/>
-            totiusque vitae rationem.  ad caelestis ordinis exempla<br/>
-            formares. <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="this is the text of the interlinear gloss">Haecene</a> praemia referimus tibi<br/>
-            obsequentes; Atqui tu hanc sententiam Pla <br/>
-
-
-
-            totiusque vitae rationem. A ad caelestis ordinis exempla<br/>
-                   formares. Haecine praemia referimus tibi<br/>
-               obsequentes; Atqui tu hanc sententiam Pla <br/>
-               tonis ore sanxisti beatas fore res publicas.<br/>
-               si eas vel <span class="interlinear-a">studiosi</span> sapientiae regerent. vel<br/>
-               earum rectores studere sapientiae contigisset.<br/>
-               Tu eiusdem viri ore hanc sapientibus capessendae<br/>
-               rei .p(ublicae). <span class="interlinear-b">necessariam</span> causam esse monuisti;<br/>
-               ne improbis flagitiosisque civibus urbium relicta<br/>
-               gubernacula. pestem bonis ac perniciem<br/>
-               ferrent. Hanc igitur auctoritatem secutus.<br/>
-               quod a te inter secreta otia didiceram. trans<br/>
-               ferre in actum publicae administrationis optavi;<br/>
-               Tu mihi et qui te sapientium mentibus inseruit<br/>
-               deus conscii nullum me ad magistratum nisi<br/>
-               commune omnium bonorum studium de<br/>
-               tulisse. Inde cum improbis graves inexorabi<br/>
-               lesque discordiae et quod conscientiae liber<br/>
-               tas habet. pro tuendo iure spreta potentiorum<br/>
-               semper offensio. Quotiens ego conigastum.<br/>
-               inimbecillis cuiusque fortunas impetum fa<br/>
-               cientem. obvius excepi. quotiens trigguillam <br/>
-          </div>
-        </div>
-        <aside class="col-3" id="marginalia">
-          <h2>Marginalia (more information <i>here</i>)</h2>
-          <div class="marginalia" data-marginalia-id="1">alkjsdlkjlasdj</div>
-          <div class="marginalia" data-marginalia-id="2">alkjsdlkjlasdj</div>
-
-        </aside>
-      </div>
-    </div>
+    <div id="includedContent"></div>
     <!--<script id="template-note" type="text/x-handlebars-template">
       {{!-\- {{This is a Handlebars template}} -\-}}
       <div class="sidebar-note border border-transparent rounded my-3 p-3" data-note-id="{{id}}">
