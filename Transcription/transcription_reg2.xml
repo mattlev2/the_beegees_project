@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<text>
-    <region number="8">
+<text><pb n="x"/>totiusque vitae rationem. <region number="10"><call>A</call> ad caelestis ordinis
+        exempla<lb/> formares.</region>
+    <region number="2">Haecine praemia referimus tibi<lb/> obsequentes;</region>
+    <region number="3">Atqui tu hanc sententiam Pla<lb/> tonis ore sanxisti beatas fore res
+        publicas.<lb/> si eas vel studiosi sapientiae regerent. vel<lb/> earum rectores studere
+        sapientiae contigisset.<lb/></region>
+    <region number="4"> Tu eiusdem viri ore hanc sapientibus capessendae<lb/> rei .p(ublicae).
+        necessariam causam esse monuisti;<lb/> ne improbis flagitiosisque civibus urbium
+        relicta<lb/> gubernacula. pestem bonis ac perniciem <lb/> ferrent.</region>
+    <region number="5"> Hanc igitur auctoritatem secutus.<lb/> quod a te inter secreta otia
+        didiceram. trans<lb/> ferre in actum publicae administrationis optavi;<lb/></region>
+    <region number="6"> Tu mihi et qui te sapientium mentibus inseruit<lb/> deus conscii nullum me
+        ad magistratum nisi <lb/> commune omnium bonorum studium de<lb/> tulisse. </region>
+    <region number="7">Inde cum improbis graves inexorabi<lb/> lesque discordiae et quod
+        conscientiae liber<lb/> tas habet. pro tuendo iure spreta potentiorum<lb/> semper
+        offensio.</region>
+    <region number="8">Quotiens ego conigastum.<lb/> inimbecillis cuiusque fortunas impetum fa<lb/>
+        cientem. obvius excepi. quotiens trigguillam <pb n="x+1"/>
         <glossed where="interlinear" content="regali">regiae</glossed> praepositum domus. </region>
     <region number="9"><glossed where="interlinear" content="ab inchoato malo">ab incoepta</glossed> per<lb/>
         <glossed where="interlinear" content="imo non solum coeperat sed imo perpetraverat"
@@ -98,5 +114,4 @@
     <region number="17"> Satisne <glossed where="interlinear" content="contra me">in me</glossed>
         magnas <glossed where="interlinear" content="a te">uideor</glossed>
         <glossed where="interlinear" content="accumulasse">exacervasse</glossed>
-        discordias.</region>
-</text>
+        discordias.</region></text>
