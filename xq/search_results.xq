@@ -132,7 +132,7 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                             data-marginalia-id="{$position}"><h5>Context:</h5>"{
                                                                 for $item in fn:tokenize($extract/ancestor::region, '\W+')
                                                                 return
-                                                                    <a
+                                                                    <a target="_blank"
                                                                         href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                             }"</p>
                                                         {
@@ -144,13 +144,13 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                                     <p>"{
                                                                             for $item in fn:tokenize($extract/parent::glossed, '\W+')
                                                                             return
-                                                                                <a
+                                                                                <a target="_blank"
                                                                                     href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                         }"</p>
                                                                     <h5>The gloss to this sentence or word is:</h5><p>"{
                                                                             for $item in fn:tokenize($extract/parent::glossed/data(@content), '\W+')
                                                                             return
-                                                                                <a
+                                                                                <a target="_blank"
                                                                                     href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                         }"</p></div>
                                                             
@@ -192,20 +192,20 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                             <p>"{
                                                                     for $item in $extract2/fn:tokenize(data(@content), '\W+')
                                                                     return
-                                                                        <a
+                                                                        <a target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p>
                                                             <h5>The glossed word or sentence is:</h5><p>"{
-                                                                    for $item in fn:tokenize($extract2/text(), '\W+')
+                                                                    for $item in fn:tokenize($extract2/descendant-or-self::node(), '\W+')
                                                                     return
-                                                                        <a
+                                                                        <a target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p><p
                                                                 class="main-text"
                                                                 data-marginalia-id="{$position}"><h5>Context:</h5>"{
                                                                     for $item in $extract2/fn:tokenize($extract2/ancestor::region, '\W+')
                                                                     return
-                                                                        <a
+                                                                        <a target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p></div>
                                                     
@@ -243,23 +243,23 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                             class="marginalias"
                                                             data-marginalia-id="{$position}"><h5>The string "{$searchphrase}" is part of the following interlinear gloss:</h5>
                                                             <p>"{
-                                                                    for $item in $extract3/fn:tokenize(data(@content), '\W+')
+                                                                    for $item in fn:tokenize($extract3/data(@content), '\W+')
                                                                     return
-                                                                        <a
+                                                                        <a target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p>
                                                             <h5>The glossed word or sentence is:</h5><p>"{
-                                                                    for $item in $extract3/fn:tokenize($extract3/text(), '\W+')
+                                                                    for $item in fn:tokenize($extract3/descendant-or-self::node(), '\W+')
                                                                     return
-                                                                        <a
+                                                                        <a target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p>
                                                             <p
                                                                 class="main-text"
                                                                 data-marginalia-id="{$position}"><h5>Context:</h5>"{
-                                                                    for $item in $extract3/fn:tokenize($extract3/ancestor::region, '\W+')
+                                                                    for $item in fn:tokenize($extract3/ancestor::region, '\W+')
                                                                     return
-                                                                        <a
+                                                                        <a target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p></div>
                                                     </li>
