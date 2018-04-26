@@ -19,8 +19,6 @@
                 <div class="col-5">
                     <div class="row">
                         <h1 class="col-0">Transcription</h1>
-                        <button class="btn btn-light" data-action="show" id="toggle-all-interlinear"
-                            >Show all Interlinear Glosses</button>
                     </div>
                     <xsl:element name="div">
                         <xsl:attribute name="id">transcription</xsl:attribute>
@@ -98,8 +96,14 @@
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="//lb">
+    <!--<xsl:template match="//lb">
         <br/>
+    </xsl:template>-->
+
+    <xsl:template match="//call">
+        <b>
+            [<xsl:value-of select="."/>]
+        </b>
     </xsl:template>
 
 </xsl:stylesheet>
