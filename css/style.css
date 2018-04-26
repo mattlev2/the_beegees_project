@@ -16,6 +16,7 @@
 }
 [data-glossed-by="marginalia"] {
     background-color: Tomato;
+    margin: 0 .2em;
 }
 [data-glossed-by="marginalia"].active,
 .marginalia.active{
