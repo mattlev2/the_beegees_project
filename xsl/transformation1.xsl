@@ -29,7 +29,7 @@
                     <xsl:element name="aside">
                         <xsl:attribute name="class">col-3</xsl:attribute>
                         <xsl:attribute name="id">marginalia</xsl:attribute>
-                        <h2>Marginalia (more information <i>here</i>)</h2>
+                        <h2>Marginalia</h2>
                         <xsl:for-each select="//glossed[@where = 'marginal']">
                             <xsl:element name="div">
                                 <xsl:attribute name="class">marginalia</xsl:attribute>
