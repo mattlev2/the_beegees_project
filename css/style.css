@@ -110,10 +110,6 @@ fieldset {
     z-index: 9;
 }
 
-<<<<<<< HEAD
-img#photo {
-    transform: rotate(90deg);
-=======
 figcaption {
     caption-side: top;
     margin-bottom: 50px;
@@ -125,6 +121,8 @@ figcaption {
 
 .pre-scrollable {
     max-height: 600px;
-    
->>>>>>> 47504272cc34cc5767790981e691cca93f1ad88c
+
+}
+.col-4 {
+    overflow: hidden;
 }

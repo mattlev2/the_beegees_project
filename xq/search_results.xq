@@ -89,27 +89,30 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
         <div
             class="container-fluid"
             id="site-wrapper">
+            <h1>Searched string: "<a
+                    href="http://logeion.uchicago.edu/index.html#{$searchphrase}"
+                    target="_blank">{$searchphrase}</a>"</h1><br/>
             <div
                 class="row py-2">
                 
-                <h1>Searched string: "<a
-                        href="http://logeion.uchicago.edu/index.html#{$searchphrase}"
-                        target="_blank">{$searchphrase}</a>"</h1><br/>
+                
                 
                 
                 {
                     if (contains($select_type_of_text, "1"))
                     then
-                        <div>{
-                                (
-                                
-                                (::) (:The first box if checked returns 1, the second 2, the third 3:)
-                                
-                                (:Things that doesnt work: 
+                        
+                        (
+                        
+                        (::) (:The first box if checked returns 1, the second 2, the third 3:)
+                        
+                        (:Things that doesnt work: 
                                 - strings before punctuation. 
                                 - Find a way to avoid the tokenization of 
                                 the call letter:)
-                                (:Show the string in context if asked and if found in the main text:)
+                        (:Show the string in context if asked and if found in the main text:)
+                        <div
+                            class="col-4">{
                                 (let $extract := doc("/db/apps/the_beegees_project/data/transcription_final.xml")/text//text()[contains(., concat(" ", $searchphrase))]
                                 return
                                     (<h5>Main text</h5>,
@@ -127,14 +130,15 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                         
                                                         
                                                         
-                                                        <p
+                                                        <div
                                                             class="main-text"
                                                             data-marginalia-id="{$position}"><h5>Context:</h5>"{
                                                                 for $item in fn:tokenize($extract/ancestor::region, '\W+')
                                                                 return
-                                                                    <a target="_blank"
+                                                                    <a
+                                                                        target="_blank"
                                                                         href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
-                                                            }"</p>
+                                                            }"</div>
                                                         {
                                                             if ($extract/parent::glossed)
                                                             then
@@ -144,13 +148,15 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                                     <p>"{
                                                                             for $item in fn:tokenize($extract/parent::glossed, '\W+')
                                                                             return
-                                                                                <a target="_blank"
+                                                                                <a
+                                                                                    target="_blank"
                                                                                     href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                         }"</p>
                                                                     <h5>The gloss to this sentence or word is:</h5><p>"{
                                                                             for $item in fn:tokenize($extract/parent::glossed/data(@content), '\W+')
                                                                             return
-                                                                                <a target="_blank"
+                                                                                <a
+                                                                                    target="_blank"
                                                                                     href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                         }"</p></div>
                                                             
@@ -165,15 +171,17 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                     else
                                         ('The main text does not contains the string you are looking for. You should try again later!')
                                     )
-                                ))
-                            }</div>
+                                )
+                            }</div>)
+                    
                     else
                         ()
                 }
                 { (:Show the string in context if asked and if found in the marginalia:)
                     (if (contains($select_type_of_text, "2"))
                     then
-                        <div>{
+                        <div
+                            class="col-4">{
                                 (let $extract2 := doc("/db/apps/the_beegees_project/data/transcription_final.xml")/text//glossed[@where = "marginal"][data(@content[contains(., $searchphrase)])]
                                 return
                                     (<h5>Marginal glosses</h5>,
@@ -192,20 +200,23 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                             <p>"{
                                                                     for $item in $extract2/fn:tokenize(data(@content), '\W+')
                                                                     return
-                                                                        <a target="_blank"
+                                                                        <a
+                                                                            target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p>
                                                             <h5>The glossed word or sentence is:</h5><p>"{
                                                                     for $item in fn:tokenize($extract2/descendant-or-self::node(), '\W+')
                                                                     return
-                                                                        <a target="_blank"
+                                                                        <a
+                                                                            target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p><p
                                                                 class="main-text"
                                                                 data-marginalia-id="{$position}"><h5>Context:</h5>"{
                                                                     for $item in $extract2/fn:tokenize($extract2/ancestor::region, '\W+')
                                                                     return
-                                                                        <a target="_blank"
+                                                                        <a
+                                                                            target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p></div>
                                                     
@@ -226,7 +237,8 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                     (:Show the string in context if asked and if found in the interlinear glosses:)
                     (if (contains($select_type_of_text, "3"))
                     then
-                        <div>{
+                        <div
+                            class="col-4">{
                                 (let $extract3 := doc("/db/apps/the_beegees_project/data/transcription_final.xml")/text//glossed[@where = "interlinear"][data(@content[contains(., $searchphrase)])]
                                 return
                                     (<h5>Interlinear glosses</h5>,
@@ -245,13 +257,15 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                             <p>"{
                                                                     for $item in fn:tokenize($extract3/data(@content), '\W+')
                                                                     return
-                                                                        <a target="_blank"
+                                                                        <a
+                                                                            target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p>
                                                             <h5>The glossed word or sentence is:</h5><p>"{
                                                                     for $item in fn:tokenize($extract3/descendant-or-self::node(), '\W+')
                                                                     return
-                                                                        <a target="_blank"
+                                                                        <a
+                                                                            target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p>
                                                             <p
@@ -259,7 +273,8 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                                                 data-marginalia-id="{$position}"><h5>Context:</h5>"{
                                                                     for $item in fn:tokenize($extract3/ancestor::region, '\W+')
                                                                     return
-                                                                        <a target="_blank"
+                                                                        <a
+                                                                            target="_blank"
                                                                             href="http://logeion.uchicago.edu/index.html#{$item}">{$item}{$nbsp}</a>
                                                                 }"</p></div>
                                                     </li>
