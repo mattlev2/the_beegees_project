@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p part="N">Publication Information</p>
+         </publicationStmt>
+         <sourceDesc default="false">
+            <p part="N">Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb n="x"/>
+         <p part="N">
+            <seg type="region" xml:id="reg8" part="N">
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">regali</gloss>regiae</seg> praepositum domus. </seg>
+            <seg type="region" xml:id="reg9" part="N">
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">ab inchoato malo</gloss>ab incoepta</seg> per<lb/>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">imo non solum coeperat sed imo
+                     perpetraverat</gloss> perpetrataque</seg> iam prorsus <seg
+                  type="interlinearly_gloss">
+                  <gloss type="interlinear_gloss">iniustitia</gloss>iniuria</seg> deieci.</seg>
+            <seg type="region" xml:id="reg10" part="N">Quoti<lb/>ens <seg
+                  type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">nostros</gloss>miseros</seg> quos infinitis
+               calumniis <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">quia inpune remanebat id est sine
+                  victoria</gloss>inpunita</seg>
+               <lb/>
+               <seg type="interlinearly_glossed">
+                  <seg type="marginaly_glossed">
+                     <gloss type="marginal_gloss">id est gothorum</gloss>
+                     <hi>B</hi> barbarorum</seg>
+               </seg> semper avaritia vexabat; <lb/>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">opposita. aversita ab defensione mea. consulari
+                     quererat consul</gloss>obiecta</seg> periculis auctoritate protexi.</seg>
+            <seg type="region" xml:id="reg11" part="N"> Num<lb/> quam me <seg
+                  type="interlinear_gloss">
+                  <gloss type="interlinear_gloss">id est a iustitia</gloss>ab iure</seg>. <seg
+                  type="interlinearly_gloss">
+                  <gloss type="interlinear_gloss">ad iniustitiam</gloss>ad iniuriam </seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">aliquis</gloss>quisquam</seg>
+               <lb/> detraxit. </seg>
+            <seg type="region" xml:id="reg12" part="N">
+               <seg type="marginaly_glossed">
+                  <gloss type="marginal_gloss">Provinciales sunt milites qui a militia liberi sunt.
+                     Et nulli quicquam debent. Idem prolitteri dicti quod soli prole faveant;
+                  </gloss> A Provincialium</seg> fortunas. <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">primum patrones ministrosque</gloss>tum </seg>
+               pri<lb/>vatis rapinis. <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">aliquando</gloss>tum </seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">dominicis</gloss>publicis </seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">de teleonis id est cum</gloss>vectigalibus </seg>
+               <lb/>
+               <seg type="interlinearly_glossed">
+                  <seg type="marginaly_glossed">
+                     <gloss type="marginal_gloss">id est periclitari perire id est in perditionem
+                        reditibus que a rege invehebantur</gloss>
+                     <hi>G</hi> pessumdari</seg>
+               </seg> ; non aliter quam qui patiebantur<lb/>
+               <seg type="marginaly_glossed">
+                  <gloss type="marginal_gloss">Quia insolita tributa pendebant aliquando iubente
+                     rege gothorum. aliquando eo nesciente. ideo dolebat iste sicut illi quae
+                     patiebantur; </gloss> F indolui. </seg>
+            </seg>
+            <seg type="region" xml:id="reg13" part="N">
+               <lb/> atque inexplicabilis <seg type="interlinearly_glossed">
+                  <seg type="marginaly_glossed">
+                     <gloss type="marginal_gloss">a rege constituta</gloss>
+                     <hi>N</hi> indicta</seg>
+               </seg>
+               <seg type="interlinearly_glossed">
+                  <seg type="marginaly_glossed">
+                     <gloss type="marginal_gloss">qua milites alerent</gloss>
+                     <hi>E</hi> coemptio</seg>
+               </seg>. <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">afflictura</gloss>pro fligatura</seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">per inopiam</gloss>inopia</seg> campaniam
+               provinciam <lb/> videretur; </seg>
+            <seg type="region" xml:id="reg14" part="N">certamen adversum <seg
+                  type="interlinear_gloss">
+                  <gloss type="interlinear_gloss">a preficiendo</gloss>praefectum </seg>
+               <lb/>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">domus iudicatoriae</gloss>pramtorii communis </seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">utilitatis</gloss>commodi </seg>ratione suscepi; <lb/>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">Theodorico audiente</gloss>rege cognoscente </seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">cum praefecto illo</gloss>contendi</seg>. <seg
+                  type="marginaly_gloss">
+                  <seg type="interlinearly_glossed">
+                     <gloss type="interlinear_gloss">Tempore famis dum regis horrea ac principum
+                        plena essent regia iubente potentia. indicta est coemptio gravissima . ita
+                        ut gravius emerent frumenta regis . quae res dum nimium campaniam affligeret
+                        . boeciis periculose opponens ne id fieret evicit; </gloss>
+                     <hi/>coemptio</seg>
+               </seg>
+            </seg>
+            <seg type="region" xml:id="reg15" part="N">
+               <seg type="marginaly_glossed">
+                  <gloss type="marginal_gloss">Hi duo fuerant homines Theodorici ducis quibus enim
+                     illo in tempore accidit commisisse necessariam rem apud ipsum ducem Romae urbis
+                     quo scientiae eandem rem iussit eos pergere in ex ilium. Venientes se ad
+                     ravennam urbem. noluit inde recedere. qui ipso die quo debis factum fuerit hoc
+                     accusaverent me eisque factibus suscepta est apud regem; </gloss> R Paulinum </seg>
+               <seg type="interlinearly_glossed">
+                  <seg type="marginaly_glossed">
+                     <gloss type="marginal_gloss">dignum consulatum de consulato depositus iniusta
+                        accusatione barbari in palatio ne fiducia</gloss>
+                     <hi>O</hi> consularem virum.</seg>
+               </seg> cuius <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">facultates</gloss>opes </seg>
+               <seg type="marginaly_glossed">
+                  <gloss type="marginal_gloss">Palatinos viros qui assiduae palatium incolunt .
+                     Palatines canes vocat propter cupiditatem voracitatis; </gloss> X Palatinae </seg>
+               <seg type="interlinearly_glossed">
+                  <seg type="marginaly_glossed">
+                     <gloss type="marginal_gloss">id est canini homines</gloss>
+                     <hi>H</hi> canes</seg>
+               </seg> iam spe<lb/> atque <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">superbia</gloss>ambitione</seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">prodevorant</gloss>devorassent </seg> ; ab ipsis
+                  <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">comedentium</gloss>hian tium</seg> faucibus traxi. </seg>
+            <seg type="region" xml:id="reg16" part="N">
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">quare</gloss>Ne </seg>
+               <seg type="marginaly_glossed">
+                  <gloss type="marginal_gloss">Hi duo fuerant homines Theodorici ducis quibus enim
+                     illo in tempore accidit commisisse necessariam rem apud ipsum ducem Romae urbis
+                     quo scientiae eandem rem iussit eos pergere in ex ilium. Venientes se ad
+                     ravennam urbem. noluit inde recedere. qui ipso die quo debis factum fuerit hoc
+                     accusaverent me eisque factibus suscepta est apud regem; </gloss> R
+                  Albinum.</seg> consula<lb/> rem virum. <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">prepropere male iudicate
+                  indiscusse</gloss>praeiudicatae </seg>
+               <seg type="marginaly_glossed">
+                  <gloss type="marginal_gloss">Quia antequam praesentaretur ut se defenderet regit
+                     potestas iussit eum puniri; </gloss> P accusationis</seg> poena <lb/>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">scilicet ut moriretur</gloss>corriperet</seg>;
+               odiis me cypriani <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">accusatoris inmisi</gloss>delatoris</seg>
+               opposui.<lb/>
+            </seg>
+            <seg type="region" xml:id="reg17" part="N"> Satisne <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">contra me</gloss>in me</seg> magnas <seg
+                  type="interlinearly_gloss">
+                  <gloss type="interlinear_gloss">a te</gloss>uideor </seg>
+               <seg type="interlinearly_glossed">
+                  <gloss type="interlinear_gloss">accumulasse</gloss>exacervasse</seg>
+               discordias.</seg>
+         </p>
+      </body>
+   </text>
+</TEI>
