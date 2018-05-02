@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
-    <xsl:output omit-xml-declaration="yes"/>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="tei xs " version="2.0">
     <!--<xsl:strip-space elements="*"/>-->
     <xsl:template match="/">
         <html class="no-js" lang="en-GB">
             <head>
-                <title>{$page-title}</title>
+                <title>DEMM Hack Prototype - BG's rock !</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="x-ua-compatible" content="ie=edge"/>
                 <script src="libs/jquery/jquery-3.3.1.min.js"/>
-                <meta name="description"
-                    content="This is a prototype digital manuscript edition made during the DEMM Hack week at Cambridge University Library."/>
+                <meta name="description" content="This is a prototype digital manuscript edition made during the DEMM Hack week at Cambridge University Library."/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="stylesheet" href="libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
                 <link rel="stylesheet" href="css/style.css"/>
@@ -77,36 +73,28 @@
 
                             <div class="modal-footer">
                                 <div class="col-auto">
-                                    <button type="button" class="btn btn-primary form-control"
-                                        data-dismiss="modal">Dismiss this message</button>
+                                    <button type="button" class="btn btn-primary form-control" data-dismiss="modal">Dismiss this message</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <button data-toggle="modal" data-target="#welcome-splash"
-                        class="btn btn-small btn-info">Show introduction</button>
+                    <button data-toggle="modal" data-target="#welcome-splash" class="btn btn-small btn-info">Show introduction</button>
                     <div>
                         <form class="form form-inline" method="post" action="search_results.xq">
-                            <input type="text" class="form-control form-control-input"
-                                name="searchphrase" placeholder="Enter your search term..."
-                                size="40"/>
+                            <input type="text" class="form-control form-control-input" name="searchphrase" placeholder="Enter your search term..." size="40"/>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"
-                                    id="search-main-text" name="main_text" value="1"/>
+                                <input class="form-check-input" type="checkbox" id="search-main-text" name="main_text" value="1" checked="checked"/>
                                 <label class="form-check-label" for="search-main-text">Main
                                     Text</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"
-                                    id="search-marginalia" name="marginalia" value="2"/>
-                                <label class="form-check-label" for="search-marginalia"
-                                    >Marginalia</label>
+                                <input class="form-check-input" type="checkbox" id="search-marginalia" name="marginalia" value="2" checked="checked"/>
+                                <label class="form-check-label" for="search-marginalia">Marginalia</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"
-                                    id="search-interlinear" name="interlinear" value="3"/>
+                                <input class="form-check-input" type="checkbox" id="search-interlinear" name="interlinear" value="3" checked="checked"/>
                                 <label class="form-check-label" for="search-interlinear">Interlinear
                                     Glosses</label>
                             </div>
@@ -132,7 +120,7 @@
                                 <figcaption>Ms kk.3.21-6v</figcaption>
                             </figure>-->
                             <div class="tiles">
-                                <div class="tile" data-scale="1.1" data-image="Photos/kk.3.21-6r.jpg"></div>
+                                <div class="tile" data-scale="1.6" data-image="Photos/kk.3.21-7r.jpg"/>
                             </div>
                         </div>
                         <div class="col-5">
@@ -149,15 +137,13 @@
                             <xsl:attribute name="id">marginalia</xsl:attribute>
                             <h2>Marginalia</h2>
                             <div class="pre-scrollable">
-                                <xsl:for-each select="//glossed[@where = 'marginal']">
+                                <xsl:for-each select="//tei:gloss[@type = 'marginal_gloss']">
                                     <xsl:element name="div">
                                         <xsl:attribute name="class">marginalia</xsl:attribute>
                                         <xsl:attribute name="data-marginalia-id">
-                                            <xsl:value-of
-                                                select="count(preceding::glossed[@where = 'marginal']) + 1"
-                                            />
+                                            <xsl:value-of select="translate(@target, '#margin', '')"/>
                                         </xsl:attribute>
-                                        <xsl:value-of select="@content"/>
+                                        <xsl:value-of select="."/>
                                     </xsl:element>
                                 </xsl:for-each>
                             </div>
@@ -174,17 +160,86 @@
     </xsl:template>
 
 
+    <!--
+    <xsl:template match="tei:p">
+        <xsl:apply-templates/>
+    </xsl:template>-->
+
+
+    <xsl:template match="tei:seg[@type = 'gloss']">
+        <xsl:if test="@subtype = 'interlinear_gloss'">
+            <xsl:if test="child::tei:seg[@subtype = 'marginal_gloss']">
+                <xsl:element name="a">
+                    <xsl:attribute name="class">glossed</xsl:attribute>
+                    <xsl:attribute name="data-glossed-by">interlinear</xsl:attribute>
+                    <xsl:attribute name="data-trigger">focus</xsl:attribute>
+                    <xsl:attribute name="data-toggle">popover</xsl:attribute>
+                    <xsl:attribute name="data-placement">top</xsl:attribute>
+                    <xsl:attribute name="data-content">
+                        <xsl:variable name="id" select="@xml:id"/>
+                        <xsl:value-of select="ancestor::tei:TEI//tei:additions/tei:gloss[translate(@target, '#', '') = $id]"/>
+                    </xsl:attribute>
+                    <xsl:element name="span">
+                        <xsl:attribute name="class">glossed</xsl:attribute>
+                        <xsl:attribute name="data-glossed-by">marginalia</xsl:attribute>
+                        <xsl:attribute name="data-marginalia-id">
+                            <xsl:value-of select="count(preceding::tei:seg[@subtype = 'marginal_gloss']) + 1"/>
+                        </xsl:attribute>
+                        <xsl:value-of select="."/>
+                    </xsl:element>
+                </xsl:element>
+            </xsl:if>
+            <xsl:if test="not(child::tei:seg[@subtype = 'marginal_gloss'])">
+                <xsl:element name="a">
+                    <xsl:attribute name="class">glossed</xsl:attribute>
+                    <xsl:attribute name="data-glossed-by">interlinear</xsl:attribute>
+                    <xsl:attribute name="data-trigger">focus</xsl:attribute>
+                    <xsl:attribute name="data-toggle">popover</xsl:attribute>
+                    <xsl:attribute name="data-placement">top</xsl:attribute>
+                    <xsl:attribute name="data-content">
+                        <xsl:variable name="id" select="@xml:id"/>
+                        <xsl:value-of select="ancestor::tei:TEI//tei:additions/tei:gloss[translate(@target, '#', '') = $id]"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="."/>
+                </xsl:element>
+            </xsl:if>
+        </xsl:if>
+        <xsl:if test="@subtype = 'marginal_gloss'">
+            <xsl:element name="a">
+                <xsl:attribute name="class">glossed</xsl:attribute>
+                <xsl:attribute name="data-glossed-by">marginalia</xsl:attribute>
+                <xsl:attribute name="data-marginalia-id">
+                    <xsl:value-of select="translate(@xml:id, 'margin', '')"/>
+                </xsl:attribute>
+                <xsl:if test="child::seg[@subtype = 'interlinear_gloss']">
+                    <xsl:element name="span">
+                        <xsl:attribute name="class">glossed</xsl:attribute>
+                        <xsl:attribute name="data-glossed-by">interlinear</xsl:attribute>
+                        <xsl:attribute name="data-trigger">focus</xsl:attribute>
+                        <xsl:attribute name="data-toggle">popover</xsl:attribute>
+                        <xsl:attribute name="data-placement">top</xsl:attribute>
+                        <xsl:attribute name="data-content">
+                            <xsl:variable name="id2" select="@xml:id"/>
+                            <xsl:value-of select="ancestor::tei:TEI//tei:additions/tei:gloss[translate(@target, '#', '') = $id2]"/>
+                        </xsl:attribute>
+                        <xsl:value-of select="."/>
+                    </xsl:element>
+                </xsl:if>
+                <xsl:if test="not(child::seg[@subtype = 'interlinear_gloss'])">
+                    <xsl:value-of select="."/>
+                </xsl:if>
+            </xsl:element>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="tei:teiHeader"/>
 
 
 
 
 
 
-
-
-
-
-
+    <!--
 
     <xsl:template match="//glossed[@where = 'interlinear']">
         <xsl:element name="a">
@@ -238,15 +293,15 @@
         </xsl:element>
     </xsl:template>
 
-    <!--<xsl:template match="//lb">
+    <!-\-<xsl:template match="//lb">
         <br/>
-    </xsl:template>-->
+    </xsl:template>-\->
 
     <xsl:template match="//call">
         <b> [<xsl:value-of select="."/>] </b>
         <xsl:if test="parent::glossed">
             <b> [<xsl:value-of select="text()"/>] </b>
         </xsl:if>
-    </xsl:template>
+    </xsl:template>-->
 
 </xsl:stylesheet>
