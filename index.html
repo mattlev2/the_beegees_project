@@ -2,8 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <title>DEMM Hack Prototype - BG's rock !</title>
-            <meta charset="utf-8"/>
-        <script src="libs/jquery/jquery-3.3.1.min.js"/>
+            <meta charset="utf-8"/><script src="libs/jquery/jquery-3.3.1.min.js"></script>
         <meta name="description" content="This is a prototype digital manuscript edition made during the DEMM Hack week at Cambridge University Library."/>
                <meta name="viewport" content="width=device-width, initial-scale=1"/>
                   <link rel="stylesheet" href="libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
@@ -80,41 +79,24 @@
                         </li>
                     </ol>
                     <div class="modal-footer">
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-primary form-control" data-dismiss="modal">Dismiss this message</button>
-                        </div>
+                        <div class="col-auto"><button type="button" class="btn btn-primary form-control" data-dismiss="modal">Dismiss this message</button></div>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button data-toggle="modal" data-target="#welcome-splash" class="btn btn-small btn-info">Show introduction</button>
-            <div>
-            <form class="form form-inline" method="post" action="search_results.xq">
-                    <input type="text" class="form-control form-control-input" name="searchphrase" placeholder="Enter your search term..." size="40"/>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="search-main-text" name="main_text" value="1" checked="checked"/>
-                        <label class="form-check-label" for="search-main-text">Main
-                Text</label>
-                    </div>
-                <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="search-marginalia" name="marginalia" value="2" checked="checked"/>
-                        <label class="form-check-label" for="search-marginalia">Marginalia</label>
-                    </div>
-                <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="search-interlinear" name="interlinear" value="3" checked="checked"/>
-                        <label class="form-check-label" for="search-interlinear">Interlinear
-                    Glosses</label>
-                    </div>
-                    <button type="submit" class="btn btn-success">Search</button>
-                </form>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"><button data-toggle="modal" data-target="#welcome-splash" class="btn btn-small btn-info">Show introduction</button><div>
+            <form class="form form-inline" method="post" action="search_results.xq"><input type="text" class="form-control form-control-input" name="searchphrase" placeholder="Enter your search term..." size="40"/><div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="search-main-text" name="main_text" value="1" checked="checked"/><label class="form-check-label" for="search-main-text">Main
+                Text</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="search-marginalia" name="marginalia" value="2" checked="checked"/><label class="form-check-label" for="search-marginalia">Marginalia</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="search-interlinear" name="interlinear" value="3" checked="checked"/><label class="form-check-label" for="search-interlinear">Interlinear
+                    Glosses</label></div><button type="submit" class="btn btn-success">Search</button></form>
         </div>
         </nav>
         <div class="container-fluid" id="site-wrapper">
             <div class="row py-2">
                 <div class="col-4 bg-light" id="ms-image-container">
                     <div class="tiles">
-                        <div class="tile" data-scale="1.6" data-image="Photos/kk.3.21-7r.jpg"/>
+                        <div class="tile" data-scale="1.6" data-image="Photos/kk.3.21-7r.jpg"></div>
                     </div>
                 </div>
                 <div class="col-5">
@@ -137,12 +119,10 @@
                         Quotiens <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="nostros">miseros</a> quos infinitis
                         calumniis <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="quia inpune remanebat&#xA;                                id est sine victoria">inpunita</a>
                         
-                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est gothorum">
-                            <span class="glossed" data-glossed-by="marginalia" data-marginalia-id="1">
+                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est gothorum"><span class="glossed" data-glossed-by="marginalia" data-marginalia-id="1">
                             
                             B barbarorum
-                        </span>
-                        </a> semper avaritia vexabat; 
+                        </span></a> semper avaritia vexabat; 
                         <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="opposita. aversita ab&#xA;                                defensione mea. consulari quererat consul">obiecta</a>
                         periculis auctoritate protexi.
                         Num quam me <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est a&#xA;                                iustitia">ab iure</a>. <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="ad iniustitiam">ad iniuriam </a>
@@ -155,30 +135,24 @@
                         <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="dominicis">publicis </a>
                         <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="de teleonis id est&#xA;                                cum">vectigalibus </a>
                         
-                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est periclitari&#xA;                                perire id est in perditionem reditibus que a rege&#xA;                                invehebantur">
-                            <span class="glossed" data-glossed-by="marginalia" data-marginalia-id="3">
+                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est periclitari&#xA;                                perire id est in perditionem reditibus que a rege&#xA;                                invehebantur"><span class="glossed" data-glossed-by="marginalia" data-marginalia-id="3">
                             
                             G pessumdari
-                        </span>
-                        </a> ; non aliter quam qui patiebantur
+                        </span></a> ; non aliter quam qui patiebantur
                         <a class="glossed" data-glossed-by="marginalia" data-marginalia-id="4">
                             F indolui. </a>
                         
                         
                         <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est amare et in&#xA;                                maturar et est metafora ab uvis immaturis">
                             Cum acerbae famis tempore. gravis </a>
-                        atque inexplicabilis <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="a rege&#xA;                                constituta">
-                            <span class="glossed" data-glossed-by="marginalia" data-marginalia-id="5">
+                        atque inexplicabilis <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="a rege&#xA;                                constituta"><span class="glossed" data-glossed-by="marginalia" data-marginalia-id="5">
                             
                             N indicta
-                        </span>
-                        </a>
-                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="qua milites&#xA;                                alerent">
-                            <span class="glossed" data-glossed-by="marginalia" data-marginalia-id="6">
+                        </span></a>
+                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="qua milites&#xA;                                alerent"><span class="glossed" data-glossed-by="marginalia" data-marginalia-id="6">
                             
                             E coemptio
-                        </span>
-                        </a>. <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="afflictura">pro
+                        </span></a>. <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="afflictura">pro
                             fligatura</a>
                         <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="per inopiam">inopia</a>
                         campaniam provinciam  videretur; 
@@ -196,20 +170,16 @@
                         
                         <a class="glossed" data-glossed-by="marginalia" data-marginalia-id="8">
                             R Paulinum </a>
-                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="dignum consulatum de&#xA;                                consulato depositus iniusta accusatione barbari in palatio ne&#xA;                                fiducia">
-                            <span class="glossed" data-glossed-by="marginalia" data-marginalia-id="9">
+                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="dignum consulatum de&#xA;                                consulato depositus iniusta accusatione barbari in palatio ne&#xA;                                fiducia"><span class="glossed" data-glossed-by="marginalia" data-marginalia-id="9">
                             
                             O consularem  virum.
-                        </span>
-                        </a> cuius <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="facultates">opes </a>
+                        </span></a> cuius <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="facultates">opes </a>
                         <a class="glossed" data-glossed-by="marginalia" data-marginalia-id="10">
                             X Palatinae </a>
-                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est canini&#xA;                                homines">
-                            <span class="glossed" data-glossed-by="marginalia" data-marginalia-id="11">
+                        <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="id est canini&#xA;                                homines"><span class="glossed" data-glossed-by="marginalia" data-marginalia-id="11">
                             
                             H canes
-                        </span>
-                        </a> iam spe atque <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="superbia">ambitione</a>
+                        </span></a> iam spe atque <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="superbia">ambitione</a>
                         <a class="glossed" data-glossed-by="interlinear" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="prodevorant">devorassent
                         </a> ; ab ipsis hian
                         tium faucibus traxi. 
@@ -297,11 +267,5 @@
                     </div>
                 </aside>
             </div>
-        </div>
-        <script src="libs/handlebars/handlebars-v4.0.11.js"/>
-        <script src="libs/jquery/jquery-3.3.1.min.js"/>
-        <script src="libs/popper/popper.min.js"/>
-        <script src="libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"/>
-        <script src="js/application.js" charset="utf-8"/>
-    </body>
+        </div><script src="libs/handlebars/handlebars-v4.0.11.js"></script><script src="libs/jquery/jquery-3.3.1.min.js"></script><script src="libs/popper/popper.min.js"></script><script src="libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script><script src="js/application.js" charset="utf-8"></script></body>
 </html>
