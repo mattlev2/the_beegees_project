@@ -1,5 +1,5 @@
 # The Beegees' Project
-Clone of Chris Marks' repo, for the beegees project. The participants of this projects were: Jan DIENTSBIER, Cristina DUSIO, Matthias GILLE LEVENSON and Andrea TONDI during the last DEMM Week (23-28 of april, 2018) in Cambridge. See [here](https://specialcollections-blog.lib.cam.ac.uk/?p=16181) and [here](https://specialcollections-blog.lib.cam.ac.uk/?p=16181) for an overview from the Developers.   
+Clone of Chris Marks' repo, for the beegees project. The participants of this projects were: Jan DIENTSBIER, Cristina DUSIO, Matthias GILLE LEVENSON and Andrea TONDI during the last DEMM Week (23-28 of april, 2018) in Cambridge. See [here](https://specialcollections-blog.lib.cam.ac.uk/?p=16181) and [here](https://specialcollections-blog.lib.cam.ac.uk/?p=16181) for an overview from the Developers' point of view.   
 
 ### Quick presentation of the project
  
