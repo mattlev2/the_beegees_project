@@ -19,4 +19,7 @@ Above there is a search box, which leads to a search result page. One can naviga
 
 The prototype is running on eXist-db: to make it work on your computer, create a new collection and drag all the files in it, then run *homepage.xq*. Le prototype fonctionne entièrement avec un seul fichier-source encodé en selon les normes de la XML-TEI; un ODD est encore à venir. Ce fichier source est processé à la fois via des fichiers XSL (pour la page principale) et XQuery (en ce qui concerne la page de recherche). 
 
+### Links
 
+- static version: [here](http://perso.ens-lyon.fr/matthias.gille-levenson/BG_html_version/index.html)
+- dynamic version: to be added 
