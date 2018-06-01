@@ -1,4 +1,4 @@
-# demm-template
+# The Beegees' Project
 Clone of Chris Marks' repo, for the beegees project. The participants of this projects were: Jan Dientsbier, Cristina DUSIO, Matthias GILLE LEVENSON and Andrea TONDI during the last DEMM Week (23-28 of april, 2018) in Cambridge. 
 
 ### Quick presentation of the project
