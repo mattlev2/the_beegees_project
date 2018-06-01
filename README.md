@@ -21,5 +21,5 @@ The prototype is running on eXist-db: to make it work on your computer, create a
 
 ### Links
 
-- static version: [here](http://perso.ens-lyon.fr/matthias.gille-levenson/BG_html_version/index.html)
+- static version (searching engine won't work): [here](http://perso.ens-lyon.fr/matthias.gille-levenson/BG_html_version/index.html)
 - dynamic version: to be added 
