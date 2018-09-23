@@ -119,7 +119,7 @@ declare variable $select_type_of_text := concat($main_text, $marginalia, $interl
                                 the call letter:)
                         <div
                             class="col-4">{
-                                (let $extract := doc("/db/apps/the_beegees_project/data/tei-conformant_transcription.xml")//tei:text//text()[contains(., concat("", $searchphrase))]
+                                (let $extract := doc("/db/apps/the_beegees_project/data/tei-conformant_transcription.xml")//tei:text//text()[contains(., concat(" ", $searchphrase))]
                                 return
                                     (<h5>Main text</h5>,
                                     if (exists($extract))
